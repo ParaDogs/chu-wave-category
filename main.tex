@@ -107,12 +107,12 @@ $$\xymatrix{
         (h \circ h_1)(w(\star,x)) = \star = (h \circ h_2)(w(\star,x)),
     $$
     \begin{multline*}
-        (h \circ h_1)(w(a',x)) = hh_1r(a_1,x) = hr(a_1,g(y)) = t(f(f_1(a')),x)  =\\= 
-        t(f(a_1),y) = t(f(a_2),y) = hr(a_2,g(y)) = hh_2r(a_1,x) = (h \circ h_2)(w(a',x)),
+        (h \circ h_1)(w(a',x)) = h(h_1(r(a_1,x))) = h(r(a_1,g(y))) = t(f(f_1(a')),x)  =\\= 
+        t(f(a_1),y) = t(f(a_2),y) = h(r(a_2,g(y))) = h(h_2(r(a_1,x))) = (h \circ h_2)(w(a',x)),
     \end{multline*}
     \begin{multline*}
-        (h \circ h_1)(w(a'',x)) = hh_1r(a_2,x) = hr(a_2,g(y)) = t(f(f_1(a'')),x)  =\\= 
-        t(f(a_2),y) = t(f(a_1),y) = hr(a_1,g(y)) = hh_2r(a_2,x) = (h \circ h_2)(w(a'',x))
+        (h \circ h_1)(w(a'',x)) = h(h_1(r(a_2,x))) = h(r(a_2,g(y))) = t(f(f_1(a'')),x)  =\\= 
+        t(f(a_2),y) = t(f(a_1),y) = h(r(a_1,g(y))) = h(h_2(r(a_2,x))) = (h \circ h_2)(w(a'',x))
     \end{multline*}
     для любых $x \in X$ следует, что для любого $d' \in D'$ если $d' = w(a,x)$, то $(h \circ h_1)(d') = (h \circ h_2)(d') = t((f \circ f_1)(a),x)$. Следовательно, $(f,g,h) \circ (f_1,1_X,1_D) = (f,g,h) \circ (f_2,1_X,1_D)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{Set}}$, то $f_1 = f_2$, то есть $a_1 = a_2$. Противоречие.
 
