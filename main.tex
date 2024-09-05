@@ -126,7 +126,7 @@ $$
     $$ 
     где $a \in A$, $x \in X$, что доказывает корректность определения морфизмов $(1_A,g_1,1_D)$, $(1_A,g_2,1_D)$. Если $y \in Y$, то $g(y) \in X_1$ и $g_1(g(y)) = g_2(g(y))$, то есть $g_1 \circ g = g_2 \circ g$. Тогда $(f,g,h) \circ (1_A,g_1,1_D) = (f,g,h) \circ (1_A,g_2,1_D)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{Set}}$, то $g_1 = g_2$. Противоречие.
 
-    Покажем, что $f$ --- мономорфизм категории $Set_{\star}$. Предположим, что существуют различные $a_1, a_2 \in A$ такие, что $f(a_1) = f(a_2)$. Определим объект $w: \{\star,a',a''\} \times X \to D'$, где $D' = r(\{a_1,a_2\} \times X)$ и морфизмы $(f_1,1_X,1_D), (f_2,1_X,1_D): w \to r$ категории $Chu_{\widetilde{Set}}$ следующим образом $w(\star,x) = \star$, $w(a',x) = r(a_1,x)$, $w(a'',x) = r(a_2,x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(a') = f_2(a'') = a_1$, $f_1(a'') = f_2(a') = a_1$, $h_1(r(a_1,x)) = h_2(r(a_2,x)) = r(a_1,x)$, $h_1(r(a_2,x)) = h_2(r(a_1,x)) = r(a_2,x)$ для любых $x \in X$. Корректность определения морфизмов $(f_1,1_X,h_1), (f_2,1_X,h_2)$ следует из равенств
+    Покажем, что $f$ --- мономорфизм категории $Set_{\star}$. Предположим, что существуют различные $a_1, a_2 \in A$ такие, что $f(a_1) = f(a_2)$. Определим объект $w: \{\star,a',a''\} \times X \to D'$, где $D' = r(\{a_1,a_2\} \times X)$ и морфизмы $(f_1,1_X,1_D), (f_2,1_X,1_D): w \to r$ категории $Chu_{\widetilde{Set}}$ следующим образом $w(\star,x) = \star$, $w(a',x) = r(a_1,x)$, $w(a'',x) = r(a_2,x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(a') = f_2(a'') = a_1$, $f_1(a'') = f_2(a') = a_2$, $h_1(r(a_1,x)) = h_2(r(a_2,x)) = r(a_1,x)$, $h_1(r(a_2,x)) = h_2(r(a_1,x)) = r(a_2,x)$ для любых $x \in X$. Корректность определения морфизмов $(f_1,1_X,h_1), (f_2,1_X,h_2)$ следует из равенств
     $$
         h_1(w(\star,x)) = h_2(w(\star,x)) = \star = r(f_1(\star),x) = r(f_2(\star),x),
     $$
@@ -140,8 +140,9 @@ $$
         h_1(w(a'',x)) = h_1(r(a_2,x)) = r(a_2,x) = r(f_1(a''),x),
     $$
     $$
-        h_2(w(a'',x)) = h_2(r(a_2,x)) = r(a_1,x) = r(f_2(a''),x),
+        h_2(w(a'',x)) = h_2(r(a_2,x)) = r(a_1,x) = r(f_2(a''),x)
     $$
+    для любых $x \in X$.
     Так как $(f \circ f_1)(\star) = \star = (f \circ f_2)(\star)$ и $f(f_1(a')) = f(f_2(a'')) = f(a_1) = f(a_2) = f(f_1(a'')) = f(f_2(a'))$,
     то $f \circ f_1 = f \circ f_2$. Из того, что $g$ --- эпиморфизм, следует, что $x = g(y)$ для некоторого $y \in Y$ для любого $x \in X$. Тогда из равенств
     $$
@@ -155,7 +156,7 @@ $$
         (h \circ h_1)(w(a'',x)) = h(h_1(r(a_2,x))) = h(r(a_2,g(y))) = t(f(f_1(a'')),x)  =\\= 
         t(f(a_2),y) = t(f(a_1),y) = h(r(a_1,g(y))) = h(h_2(r(a_2,x))) = (h \circ h_2)(w(a'',x))
     \end{multline*}
-    для любых $x \in X$ следует, что для любого $d' \in D'$ если $d' = w(a,x)$, то $(h \circ h_1)(d') = (h \circ h_2)(d') = t((f \circ f_1)(a),x)$. Следовательно, $(f,g,h) \circ (f_1,1_X,1_D) = (f,g,h) \circ (f_2,1_X,1_D)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{Set}}$, то $f_1 = f_2$, то есть $a_1 = a_2$. Противоречие.
+    для любых $x \in X$ следует, что для любого $d' \in D'$ если $d' = w(a,x)$, то $(h \circ h_1)(d') = (h \circ h_2)(d') = t((f \circ f_1)(a),x)$. Следовательно, $(f,g,h) \circ (f_1,1_X,h_1) = (f,g,h) \circ (f_2,1_X,h_2)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{Set}}$, то $f_1 = f_2$, то есть $a_1 = a_2$. Противоречие.
 
     \textbf{Достаточность.} Пусть $(f,g,h): r \to t$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, где $f$ --- мономорфизм, $g$ --- эпиморфизм категории $Set_{\star}$. Предположим, что $(f_1,g_1,h_1), (f_2,g_2,h_2): w \to r$ --- преобразования Чу категории $Chu_{\widetilde{Set}}$ такие, что $(f,g,h) \circ (f_1,g_1,h_1) = (f,g,h) \circ (f_2,g_2,h_2)$, где $w: E \times Z \to P$ --- пространство Чу категории $Chu_{\widetilde{Set}}$. Тогда $f \circ f_1 = f \circ f_2$, $g_1 \circ g = g_1 \circ g$ и для любого $p \in P$ если $p = w(e,(g_1 \circ g)(y)) = w(e,(g_2 \circ g)(y))$, то $(h \circ h_1)(p) = (h \circ h_2)(p) = t((f \circ f_1)(e), y) = t((f \circ f_2)(e), y)$. Покажем, что для любого $p \in P$ если $p = w(e,g_1(x))$, то $h_1(p) = h_2(p) = r(f_1(e),x)$. Пусть $p \in P$ и $p = w(e,g_1(x))$ для некоторых $e \in E$, $x \in X$. Поскольку $f$ --- мономорфизм, $g$ --- эпиморфизм категории $Set_{\star}$, то $f_1 = f_2$, $g_1 = g_2$. Тогда 
     $$
@@ -218,36 +219,36 @@ $$
     $$ 
     где $a \in A$, $x \in X$, что доказывает корректность определения морфизмов $(1_A,g_1,1_D)$, $(1_A,g_2,1_D)$. Если $y \in Y$, то $g(y) \in X_1$ и $g_1(g(y)) = g_2(g(y))$, то есть $g_1 \circ g = g_2 \circ g$. Тогда $(f,g,h) \circ (1_A,g_1,1_D) = (f,g,h) \circ (1_A,g_2,1_D)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{\GAct}}$, то $g_1 = g_2$. Противоречие.
 
-    Покажем, что $f$ --- мономорфизм категории $\GAct_{\star}$. Предположим, что существуют различные $a_1, a_2 \in A$ такие, что $f(a_1) = f(a_2)$. Определим объект $w: \{\star,a',a''\} \otimes X \to D'$, где $D' = r(\{a_1,a_2\} \otimes X)$ и морфизмы $(f_1,1_X,1_D), (f_2,1_X,1_D): w \to r$ категории $Chu_{\widetilde{\GAct}}$ следующим образом $w(\star \otimes x) = \star$, $w(a' \otimes x) = r(a_1 \otimes x)$, $w(a'' \otimes x) = r(a_2 \otimes x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(a') = f_2(a'') = a_1$, $f_1(a'') = f_2(a') = a_1$, $h_1(r(a_1 \otimes x)) = h_2(r(a_2 \otimes x)) = r(a_1 \otimes x)$, $h_1(r(a_2 \otimes x)) = h_2(r(a_1 \otimes x)) = r(a_2 \otimes x)$ для любых $x \in X$. Корректность определения морфизмов $(f_1,1_X,h_1), (f_2,1_X,h_2)$ следует из равенств
+    Покажем, что $f$ --- мономорфизм категории $\GAct_{\star}$. Предположим, что существуют различные $a_1, a_2 \in A$ такие, что $f(a_1) = f(a_2)$. Определим объект $w: (\{\star\} \sqcup G \sqcup G') \otimes X \to D'$, где $G'$ --- копия $G$, $D' = r(\{a_1,a_2\} \otimes X)$ и морфизмы $(f_1,1_X,1_D), (f_2,1_X,1_D): w \to r$ категории $Chu_{\widetilde{\GAct}}$ следующим образом $w(\star \otimes x) = \star$, $w(s \otimes x) = sr(a_1 \otimes x)$, $w(s' \otimes x) = s'r(a_2 \otimes x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(s) = sa_1$, $f_1(s') = s'a_2$, $f_2(s) = sa_2$, $f_2(s') = s'a_1$, $h_1(r(a_1 \otimes x)) = h_2(r(a_2 \otimes x)) = r(a_1 \otimes x)$, $h_1(r(a_2 \otimes x)) = h_2(r(a_1 \otimes x)) = r(a_2 \otimes x)$ для любых $x \in X$, $s \in G$, $s' \in G'$. Корректность определения морфизмов $(f_1,1_X,h_1), (f_2,1_X,h_2)$ следует из равенств
     $$
         h_1(w(\star \otimes x)) = h_2(w(\star \otimes x)) = \star = r(f_1(\star) \otimes x) = r(f_2(\star) \otimes x),
     $$
     $$
-        h_1(w(a' \otimes x)) = h_1(r(a_1 \otimes x)) = r(a_1 \otimes x) = r(f_1(a') \otimes x),
+        h_1(w(s \otimes x)) = h_1(sr(a_1 \otimes x)) = r(sa_1 \otimes x) = r(f_1(s) \otimes x),
     $$
     $$
-        h_2(w(a' \otimes x)) = h_2(r(a_1 \otimes x)) = r(a_2 \otimes x) = r(f_2(a') \otimes x),
+        h_2(w(s \otimes x)) = h_2(sr(a_1 \otimes x)) = r(sa_2 \otimes x) = r(f_2(s) \otimes x),
     $$
     $$
-        h_1(w(a'' \otimes x)) = h_1(r(a_2 \otimes x)) = r(a_2 \otimes x) = r(f_1(a'') \otimes x),
+        h_1(w(s' \otimes x)) = h_1(s'r(a_2 \otimes x)) = r(s'a_2 \otimes x) = r(f_1(s') \otimes x),
     $$
     $$
-        h_2(w(a'' \otimes x)) = h_2(r(a_2 \otimes x)) = r(a_1 \otimes x) = r(f_2(a'') \otimes x),
+        h_2(w(s' \otimes x)) = h_2(s'r(a_2 \otimes x)) = r(s'a_1 \otimes x) = r(f_2(s') \otimes x)
     $$
-    Так как $(f \circ f_1)(\star) = \star = (f \circ f_2)(\star)$ и $f(f_1(a')) = f(f_2(a'')) = f(a_1) = f(a_2) = f(f_1(a'')) = f(f_2(a'))$,
-    то $f \circ f_1 = f \circ f_2$. Из того, что $g$ --- эпиморфизм, следует, что $x = g(y)$ для некоторого $y \in Y$ для любого $x \in X$. Тогда из равенств
+    для любых $x \in X$, $s \in G$, $s' \in G'$.
+    Так как $f(f_1(s)) = f(sa_1) = sf(a_1) = sf(a_2) = f(sa_2) = f(f_2(s))$, $f(f_1(s')) = f(s'a_2) = s'f(a_2) = s'f(a_1) = f(s'a_1) = f(f_2(s'))$ и $(f \circ f_1)(\star) = \star = (f \circ f_2)(\star)$ для любых $s \in G$, $s' \in G'$, то $f \circ f_1 = f \circ f_2$. Из того, что $g$ --- эпиморфизм, следует, что $x = g(y)$ для некоторого $y \in Y$ для любого $x \in X$. Тогда из равенств
     $$
         (h \circ h_1)(w(\star \otimes x)) = \star = (h \circ h_2)(w(\star \otimes x)),
     $$
     \begin{multline*}
-        (h \circ h_1)(w(a' \otimes x)) = h(h_1(r(a_1 \otimes x))) = h(r(a_1 \otimes g(y))) = t(f(f_1(a')) \otimes x)  =\\= 
-        t(f(a_1) \otimes y) = t(f(a_2) \otimes y) = h(r(a_2 \otimes g(y))) = h(h_2(r(a_1 \otimes x))) = (h \circ h_2)(w(a' \otimes x)),
+        (h \circ h_1)(w(s \otimes x)) = h(sh_1(r(a_1 \otimes x))) = sh(r(a_1 \otimes g(y))) = st(f(f_1(s)) \otimes x)  =\\= 
+        st(f(a_1) \otimes y) = st(f(a_2) \otimes y) = sh(r(a_2 \otimes g(y))) = h(sh_2(r(a_1 \otimes x))) = (h \circ h_2)(w(s \otimes x)),
     \end{multline*}
     \begin{multline*}
-        (h \circ h_1)(w(a'' \otimes x)) = h(h_1(r(a_2 \otimes x))) = h(r(a_2 \otimes g(y))) = t(f(f_1(a'')) \otimes x)  =\\= 
-        t(f(a_2) \otimes y) = t(f(a_1) \otimes y) = h(r(a_1 \otimes g(y))) = h(h_2(r(a_2 \otimes x))) = (h \circ h_2)(w(a'' \otimes x))
+        (h \circ h_1)(w(s' \otimes x)) = h(s'h_1(r(a_2 \otimes x))) = s'h(r(a_2 \otimes g(y))) = s't(f(f_1(s')) \otimes x)  =\\= 
+        s't(f(a_2) \otimes y) = s't(f(a_1) \otimes y) = s'h(r(a_1 \otimes g(y))) = h(s'h_2(r(a_2 \otimes x))) = (h \circ h_2)(w(s' \otimes x))
     \end{multline*}
-    для любых $x \in X$ следует, что для любого $d' \in D'$ если $d' = w(a \otimes x)$, то $(h \circ h_1)(d') = (h \circ h_2)(d') = t((f \circ f_1)(a) \otimes x)$. Следовательно, $(f,g,h) \circ (f_1,1_X,1_D) = (f,g,h) \circ (f_2,1_X,1_D)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{\GAct}}$, то $f_1 = f_2$, то есть $a_1 = a_2$. Противоречие.
+    для любых $x \in X$, $s \in G$, $s' \in G'$ следует, что для любого $d' \in D'$ если $d' = w(a \otimes x)$, то $(h \circ h_1)(d') = (h \circ h_2)(d') = t((f \circ f_1)(a) \otimes x)$. Следовательно, $(f,g,h) \circ (f_1,1_X,h_1) = (f,g,h) \circ (f_2,1_X,h_2)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{\GAct}}$, то $f_1 = f_2$, то есть $a_1 = a_2$. Противоречие.
 
     \textbf{Достаточность.} Пусть $(f,g,h): r \to t$ --- преобразование Чу категории $Chu_{\widetilde{\GAct}}$, где $f$ --- мономорфизм, $g$ --- эпиморфизм категории $\GAct_{\star}$. Предположим, что $(f_1,g_1,h_1), (f_2,g_2,h_2): w \to r$ --- преобразования Чу категории $Chu_{\widetilde{\GAct}}$ такие, что $(f,g,h) \circ (f_1,g_1,h_1) = (f,g,h) \circ (f_2,g_2,h_2)$, где $w: E \otimes Z \to P$ --- пространство Чу категории $Chu_{\widetilde{\GAct}}$. Тогда $f \circ f_1 = f \circ f_2$, $g_1 \circ g = g_1 \circ g$ и для любого $p \in P$ если $p = w(e \otimes (g_1 \circ g)(y)) = w(e \otimes (g_2 \circ g)(y))$, то $(h \circ h_1)(p) = (h \circ h_2)(p) = t((f \circ f_1)(e) \otimes y) = t((f \circ f_2)(e) \otimes y)$. Покажем, что для любого $p \in P$ если $p = w(e \otimes g_1(x))$, то $h_1(p) = h_2(p) = r(f_1(e) \otimes x)$. Пусть $p \in P$ и $p = w(e \otimes g_1(x))$ для некоторых $e \in E$, $x \in X$. Поскольку $f$ --- мономорфизм, $g$ --- эпиморфизм категории $\GAct_{\star}$, то $f_1 = f_2$, $g_1 = g_2$. Тогда 
     $$
