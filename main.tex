@@ -32,7 +32,7 @@ $$\xymatrix{
     \star \ar[r] & k \wedge l.
 }$$
 
-Везде ниже $(C,\times,\star)$ означает моноидальную замкнутую биполную категорию с терминальным объектом $\star$, объектами $C$ являются алгебраические системы и для любый подсистемы $B$ произвольной алгебраической системы $A \in Ob(C)$ существует подсистема $C$ системы $A$ такая, что $A = B \sqcup C$. Скрещенное произведение объектов $(A,u), (B,v) \in Ob(C_\star)$ изоморфино объекту $((A \sqcup B)/\Theta, w)$, где $\Theta = \{(a,\star) \mid a \in A\} \cup \{(\star,b) \mid a \in A\} \cup \{(c,c) \mid c \in A \cup B\}$ и $w(\star)/\Theta = \{(a,\star) \mid a \in A\} \cup \{(\star,b) \mid b \in B\}$. В пунктированной категории $C_\star$ объекты $(A,u)$ будет обозначаться через $A_\star$ или просто $A$ и $\star$ будет рассматриваться как элемент $A$.
+Везде ниже $(C,\times,\star)$ означает моноидальную замкнутую биполную категорию с терминальным объектом $\star$, объектами $C$ являются алгебраические системы и для любой подсистемы $B$ произвольной алгебраической системы $A \in Ob(C)$ существует подсистема $C$ системы $A$ такая, что $A = B \sqcup C$. Скрещенное произведение объектов $(A,u), (B,v) \in Ob(C_\star)$ изоморфино объекту $((A \sqcup B)/\Theta, w)$, где $\Theta = \{(a,\star) \mid a \in A\} \cup \{(\star,b) \mid a \in A\} \cup \{(c,c) \mid c \in A \cup B\}$ и $w(\star)/\Theta = \{(a,\star) \mid a \in A\} \cup \{(\star,b) \mid b \in B\}$. В пунктированной категории $C_\star$ объекты $(A,u)$ будет обозначаться через $A_\star$ или просто $A$ и $\star$ будет рассматриваться как элемент $A$.
 
 НАПОМНИМ, ЧТО В КАТЕГОРИИ МНОЖЕСТВ... ПРОИЗВЕДЕНИЕ, КОПРОИЗВЕДЕНИЕ, РАССЛОЕННОЕ ПРОИЗВЕДЕНИЕ, УРАВНИТЕЛЬ, КОУРАВНИТЕЛЬ, ИНИЦИАЛЬНЫЙ И ТЕРМИНАЛЬНЫЙ ОБЪЕКТЫ.
 
@@ -120,7 +120,7 @@ $$
 \begin{proof}
     \textbf{Необходимость.} Пусть $(f,g,h): r \to t$ --- мономорфизм категории $Chu_{\widetilde{Set}}$.
 
-    Покажем, что $g$ --- эпиморфизм категории $Set_{\star}$. Предположим, что $X_1 \ne X$, где $X_1 = g(Y)$. Через $X_0$ обозначим фактормножество множества $X$ по отношению эквивалентности $\sim$ такому, что $x \sim x' \Leftrightarrow x,x' \in X_1$. Определим объект $w: A \times (X_0 \times X) \to D$ и морфизмы $(1_A,g_1,1_D), (1_A,g_2,1_D): w \to r$ категори $Chu_{\widetilde{Set}}$ следующим образом: $w(a,(x_0,x)) = r(a,x)$, $g_1(x) = (X_1,x)$, $g_2(x) = (x/\sim, x)$, для любых $a \in A$, $x \in X$, $x_0 \in X_0$. Из определения объекта $w$ категории $Chu_{\widetilde{Set}}$ следует равенство
+    Покажем, что $g$ --- эпиморфизм категории $Set_{\star}$. Предположим, что $X_1 \ne X$, где $X_1 = g(Y)$. Через $X_0$ обозначим фактормножество множества $X$ по отношению эквивалентности $\sim$ такому, что $x \sim x' \Leftrightarrow x,x' \in X_1$. Определим объект $w: A \times (X_0 \times X) \to D$ и морфизмы $(1_A,g_1,1_D), (1_A,g_2,1_D): w \to r$ категории $Chu_{\widetilde{Set}}$ следующим образом: $w(a,(x_0,x)) = r(a,x)$, $g_1(x) = (X_1,x)$, $g_2(x) = (x/\sim, x)$, для любых $a \in A$, $x \in X$, $x_0 \in X_0$. Из определения объекта $w$ категории $Chu_{\widetilde{Set}}$ следует равенство
     $$
         w(a,g_1(x)) = w(a,g_2(x)) = r(a,x),
     $$ 
@@ -163,6 +163,17 @@ $$
         h_1(p) = h_1(w(e,g_1(x))) = r(f_1(e),x) = r(f_2(e),x) = h_2(w(e,g_2(x))) = h_2(p).
     $$
     Следовательно, $(f_1,g_1,h_1) = (f_2,g_2,h_2)$ в категории $Chu_{\widetilde{Set}}$ и преобразование $(f,g,h): r \to t$ является мономорфизмом категории $Chu_{\widetilde{Set}}$.
+\end{proof}
+
+\begin{theorem}\label{coproduct}
+    Пусть $r_i: A_i \times X_i \to D_i$ --- объекты категории $Chu_{\widetilde{Set}}$, $i \in I$. Объект $r: \coprod_{i \in I} A_i \times \prod_{i \in I} \to \coprod_{i \in I} D_i$ категории $Chu_{\widetilde{Set}}$, где $r(a,x) = r_i(a, x_i)$ для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_{\widetilde{Set}}$.
+\end{theorem}
+\begin{proof}
+    Пусть условия теоремы выполнены и $i \in I$. Определим отображения $q_{A_i}: A_i \to \coprod_{i \in I} A_i$, $p_{X_i}: \prod_{i \in I} X_i \to X_i$, $q_{D_i} \to \coprod_{i \in I} D_i$ следующим образом: $q_{A_i}(a) = a$, $p_{X_i}(x) = x_i$, $q_{D_i}(d) = d$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $d \in D_i$. Поскольку $q_{D_i}(r_i(a,p_{X_i}(x))) = r_i(a,x_i) = r(a,x) = r(q_{A_i}(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I}$, то $(q_{A_i}, p_{X_i}, q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$.
+
+    Пусть $t: B \times Y \to D$ --- объект категории $Chu_{\widetilde{Set}}$, $(f_i,g_i,h_i): r_i \to t$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$. Так как $\coprod_{i \in I} A_i$ и $\coprod_{i \in I} D_i$ --- копроизведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\prod_{i \in I} X_i$ --- произведение $A_i$, $i \in I$ в категории $Set_{\star}$, то существуют единственные морфизмы $\tilde{f}: \coprod_{i \in I} A_i \to B$, $\tilde{g}: Y \to \prod_{i \in I} X_i$, $\tilde{h}: \coprod_{i \in I} D_i \to D$ категории $Set_{\star}$ такие, что $f_i = \tilde{f} \circ q_{A_i}$, $g_i = p_{X_i} \circ \tilde{g}$ и $h_i = \tilde{h} \circ q_{D_i}$ для любого $i \in I$, то есть $\tilde{f}(a) = f_i(a)$, $\tilde{g}(y)_i = g_i(y)$ и $\tilde{h}(d) = h_i(d)$ для любых $a \in A_i$, $y \in Y$, $d \in D_i$.
+
+    Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то есть для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$. Так как $(q_{A_i},p_{X_i},q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $r(q_{A_i}(a),\tilde{g}(y)) = q_{D_i}(r(a,(p_{X_i} \circ \tilde{g})(y)))$ для любых $a \in A_i$, $y \in Y$. Из того, что $h_i = \tilde{h} \circ q_{D_i}$ и $g_i = p_{X_i} \circ \tilde{g}$ следует, что $\tilde{h}(r(a,\tilde{g}(y))) = (\tilde{h} \circ q_{D_i})(r_i(a,(p_{X_i} \circ \tilde{g})(y))) = h_i(r_i(a,g_i(y)))$ для любых $a \in A_i$, $y \in Y$. Так как $(f_i,g_i,h_i)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $h_i(r_i(a,g_i(y))) = t(f_i(a),y)$ для любых $a \in A_i$, $y \in Y$. Поскольку $\tilde{f}(a) = f_i(a)$, то $t(f_i(a),y) = t(\tilde{f}(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$.
 \end{proof}
 
 \section*{Категория $Chu(\GAct_{\star})$}
