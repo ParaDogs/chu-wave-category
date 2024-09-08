@@ -24,7 +24,7 @@
     \item Объектами категории являются пары $(k,u)$, где $k \in Ob(C)$, $u \in Mor(\star,k)$;
     \item Морфизмом из $(k,u)$ в $(l,v)$ является элемент $f \in Mor(k,l)$ такой, что $f \circ u = v$,
 \end{itemize}
-где комозиция наследуется из категори $C$.
+где комозиция наследуется из категории $C$.
 
 Пусть $(C,\otimes,\star)$ --- моноидальная, замкнутая, биполная категория с терминальным объектом $\star$ и пусть $C_\star$ --- пунктированная категория $C$. Для объектов $k$ и $l$ из $C_*$ определим их \textit{скрещенное произведение} $k \wedge l$ как объект из $C_\star$, задаваемый следующим расслоенным произведением в $C$:
 $$\xymatrix{
@@ -70,7 +70,7 @@ $$
 
 Ниже под $V$ будем понимать либо пунктированную категорию множеств $Set_\star$, где объектом $\star$ является одноэлементное множество $\{\star\}$, а тензорным произведением $\otimes$ --- декартово произведение множеств, либо пунктированную категорию $\GAct_{\star}$ полигонов над абелевой группой $G$, где объектом $\star$ является нулевой полигон $\Theta$, а тензорным произведением $\otimes$ --- тензорное произведение полигонов (поскольку группа $G$ является коммутативным моноидом).
 
-Категория пространств Чу $Chu_{\widetilde{V}}$, где $V$ --- это $Set$ или $\GAct$, определяется следующим образом: объектами категории выступают всевозможные морфизмы категории $V_{\star}$ вида $r: A \otimes X \to D$, где $A,X,D \in Ob(V_{\star})$, где $\otimes$ --- тензорное произведение в категории $V_{\star}$, называемые пространствами Чу категории $Chu_{\widetilde{V}}$. Пусть $r: A \otimes X \to D_1$, $s: B \otimes Y \to D_2$ --- пространства Чу категории $Chu_{\widetilde{V}}$. Определим множество $M(r,s)$ как множество троек $(f,g,h)$ морфизмов категории $V_{\star}$, где $f: A \to B$, $g: Y \to X$ и $h: D_1 \to D_2$ такая, что $h(r(a,g(y))) = s(f(a),y)$ для любых $a \in A$, $y \in Y$. Определим отношение эквивалентности $\sim$ на множестве $M(r,s)$ следующим образом: $(f_1,g_1,h_1) \sim (f_2,g_2,h_2)$ тогда и только тогда $f_1 = f_2$, $g_1 = g_2$ и для любого $d_1 \in D_1$ если $d_1 = r(a,g_1(y))$, то $h_1(d_1) = h_2(d_2) = s(f_1(a),y)$. Фактормножество $M(r,s)/\sim$ называется множеством морфизмов между $r$ и $s$ (преобразований Чу категории $Chu_{\widetilde{V}}$). Пусть $t: C \otimes Z \to D_3$ --- пространство Чу категории $Chu_{\widetilde{V}}$, $(f_1,g_1,h_1): r \to s$, $(f_2,g_2,h_2): s \to t$, тогда композиция этих морфизмов задается равенством $(f_2,g_2,h_2) \circ (f_1,g_1,h_1) = (f_2 \circ f_1, g_1 \circ g_2, h_2 \circ h_1)$.
+Категория пространств Чу $Chu_{\widetilde{V}}$, где $V$ --- это $Set$ или $\GAct$, определяется следующим образом: объектами категории выступают всевозможные морфизмы категории $V_{\star}$ вида $r: A \otimes X \to D$, где $A,X,D \in Ob(V_{\star})$, где $\otimes$ --- тензорное произведение в категории $V_{\star}$, называемые пространствами Чу категории $Chu_{\widetilde{V}}$. Пусть $r: A \otimes X \to D_1$, $s: B \otimes Y \to D_2$ --- пространства Чу категории $Chu_{\widetilde{V}}$. Определим множество $M(r,s)$ как множество троек $(f,g,h)$ морфизмов категории $V_{\star}$, где $f: A \to B$, $g: Y \to X$ и $h: D_1 \to D_2$ таких, что $h(r(a,g(y))) = s(f(a),y)$ для любых $a \in A$, $y \in Y$. Определим отношение эквивалентности $\sim$ на множестве $M(r,s)$ следующим образом: $(f_1,g_1,h_1) \sim (f_2,g_2,h_2)$ тогда и только тогда $f_1 = f_2$, $g_1 = g_2$ и для любого $d_1 \in D_1$ если $d_1 = r(a,g_1(y))$, то $h_1(d_1) = h_2(d_2) = s(f_1(a),y)$. Фактормножество $M(r,s)/\sim$ называется множеством морфизмов между $r$ и $s$ (преобразований Чу категории $Chu_{\widetilde{V}}$). Пусть $t: C \otimes Z \to D_3$ --- пространство Чу категории $Chu_{\widetilde{V}}$, $(f_1,g_1,h_1): r \to s$, $(f_2,g_2,h_2): s \to t$, тогда композиция этих морфизмов задается равенством $(f_2,g_2,h_2) \circ (f_1,g_1,h_1) = (f_2 \circ f_1, g_1 \circ g_2, h_2 \circ h_1)$.
 
 \section*{Категория $Chu_{\widetilde{Set}}$}
 
@@ -166,10 +166,10 @@ $$
 \end{proof}
 
 \begin{theorem}\label{coproduct}
-    Пусть $r_i: A_i \times X_i \to D_i$ --- объекты категории $Chu_{\widetilde{Set}}$, $i \in I$. Объект $r: \coprod_{i \in I} A_i \times \prod_{i \in I} X_i \to \coprod_{i \in I} D_i$ категории $Chu_{\widetilde{Set}}$, где $r(a,x) = r_i(a, x_i)$ для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_{\widetilde{Set}}$.
+    Пусть $r_i: A_i \times X_i \to D_i$ --- объекты категории $Chu_{\widetilde{Set}}$, $i \in I$. Объект $r: \coprod_{i \in I} A_i \times \prod_{i \in I} X_i \to \coprod_{i \in I} D_i$ категории $Chu_{\widetilde{Set}}$ вместе с семейством $\{(q_{A_i},p_{X_i},q_{D_i}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_{\widetilde{Set}}$, где $r(a,x) = r_i(a,p_{X_i}(x)) = r_i(a, x_i)$, $q_{A_i}: A_i \to \coprod_{i \in I} A_i$, $q_{D_i}: D_i \to \coprod_{i \in I} D_i$ --- естественные вложения, $p_{X_i}: \prod_{i \in I} X_i \to X_i$ --- каноническая проекция для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_{\widetilde{Set}}$.
 \end{theorem}
 \begin{proof}
-    Пусть условия теоремы выполнены и $i \in I$. Определим отображения $q_{A_i}: A_i \to \coprod_{i \in I} A_i$, $p_{X_i}: \prod_{i \in I} X_i \to X_i$, $q_{D_i}: D_i \to \coprod_{i \in I} D_i$ следующим образом: $q_{A_i}(a) = a$, $p_{X_i}(x) = x_i$, $q_{D_i}(d) = d$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $d \in D_i$. Поскольку $q_{D_i}(r_i(a,p_{X_i}(x))) = r_i(a,x_i) = r(a,x) = r(q_{A_i}(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, то $(q_{A_i}, p_{X_i}, q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$.
+    Пусть условия теоремы выполнены. Поскольку $q_{D_i}(r_i(a,p_{X_i}(x))) = r_i(a,x_i) = r(a,x) = r(q_{A_i}(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $i \in I$, то $(q_{A_i}, p_{X_i}, q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$.
 
     Пусть $t: B \times Y \to D$ --- объект категории $Chu_{\widetilde{Set}}$, $(f_i,g_i,h_i): r_i \to t$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$. Так как $\coprod_{i \in I} A_i$ и $\coprod_{i \in I} D_i$ --- копроизведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\prod_{i \in I} X_i$ --- произведение $A_i$, $i \in I$ в категории $Set_{\star}$, то существуют единственные морфизмы $\tilde{f}: \coprod_{i \in I} A_i \to B$, $\tilde{g}: Y \to \prod_{i \in I} X_i$, $\tilde{h}: \coprod_{i \in I} D_i \to D$ категории $Set_{\star}$ такие, что $f_i = \tilde{f} \circ q_{A_i}$, $g_i = p_{X_i} \circ \tilde{g}$ и $h_i = \tilde{h} \circ q_{D_i}$ для любого $i \in I$, то есть $\tilde{f}(a) = f_i(a)$, $\tilde{g}(y)_i = g_i(y)$ и $\tilde{h}(d) = h_i(d)$ для любых $a \in A_i$, $y \in Y$, $d \in D_i$. Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) \circ (q_{A_i}, p_{X_i}, q_{D_i}) = (f_i, g_i, h_i)$ для любого $i \in I$ в категории $Chu_{\widetilde{Set}}$.
 
@@ -177,14 +177,53 @@ $$
 \end{proof}
 
 \begin{theorem}\label{product}
-    Пусть $r_i: A_i \times X_i \to D_i$ --- объекты категории $Chu_{\widetilde{Set}}$, $i \in I$. Объект $r: \prod_{i \in I} A_i \times \coprod_{i \in I} X_i \to \prod_{i \in I} D_i$ категории $Chu_{\widetilde{Set}}$, где $r(a,x)_i = r_i(a_i, x)$ для любых $i \in I$, $a \in \prod_{i \in I} A_i$, $x \in X_i$, является произведением объектов $r_i$, $i \in I$, категории $Chu_{\widetilde{Set}}$.
+    Пусть $r_i: A_i \times X_i \to D_i$ --- объекты категории $Chu_{\widetilde{Set}}$, $i \in I$. Объект $r: \prod_{i \in I} A_i \times \coprod_{i \in I} X_i \to \prod_{i \in I} r_i(A_i \times X_i)$ категории $Chu_{\widetilde{Set}}$ вместе с семейством $\{(p_{A_i},q_{X_i},p_i): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_{\widetilde{Set}}$, где $\tilde{p}_j(r(a,x_i)) = 
+    \begin{cases}
+        r_i(p_{A_i}(a),x_i),& \text{если } i = j,\\
+        \star,& \text{если } i \ne j,
+    \end{cases}$
+    $\tilde{p}_i: \prod_{i \in I} r_i(A_i \times X_i) \to r_i(A_i \times X_i)$ --- каноническая проекция, $p_{A_i}: \prod_{i \in I} A_i \to A_i$ --- каноническая проекция, $q_{X_i}: X_i \to \coprod_{i \in I} X_i$ --- естественное вложение, $p_i = m_i \circ \tilde{p}_i$, $m_i: r_i(A_i \times X_i) \to D_i$ --- естественное вложение, для любых $a \in \prod_{i \in I} A_i$, $x_i \in X_i$, $i,j \in I$, является произведением объектов $r_i$, $i \in I$, категории $Chu_{\widetilde{Set}}$.
 \end{theorem}
 \begin{proof}
-    Пусть условия теоремы выполнены и $i \in I$. Определим отображения $p_{A_i}: \prod_{i \in I} A_i \to A_i$, $q_{X_i}: X_i \to \coprod_{i \in I} X_i$, $p_{D_i}: \prod_{i \in I} D_i \to D_i$ следующим образом: $p_{A_i}(a) = a_i$, $q_{X_i}(x) = x$, $p_{D_i}(d) = d_i$ для любых $a \in \prod_{i \in I} A_i$, $x \in X_i$, $d \in \prod_{i \in I} D_i$. Поскольку $p_{D_i}(r(a,q_{X_i}(x))) = r_i(a_i,x) = r_i(p_{A_i}(a),x)$ для любых $a \in \prod_{i \in I} A_i$, $x \in X_i$, то $(p_{A_i}, q_{X_i}, p_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$.
+    Пусть условия теоремы выполнены. Поскольку $p_i(r(a,q_{X_i}(x_i))) = m_i(\tilde{p}_i(r(a,q_{X_i}(x_i)))) = \tilde{p}_i(r(a,q_{X_i}(x_i))) = r_i(p_{A_i}(a),x_i)$ для любых $a \in \prod_{i \in I} A_i$, $x_i \in X_i$, $i \in I$, то $(p_{A_i},q_{X_i},p_i)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$.
 
-    Пусть $t: B \times Y \to D$ --- объект категории $Chu_{\widetilde{Set}}$, $(f_i,g_i,h_i): t \to r_i$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$. Так как $\prod_{i \in I} A_i$ и $\prod_{i \in I} D_i$ --- произведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\coprod_{i \in I} X_i$ --- копроизведение $A_i$, $i \in I$ в категории $Set_{\star}$, то существуют единственные морфизмы $\tilde{f}: B \to \prod_{i \in I} A_i$, $\tilde{g}: \coprod_{i \in I} X_i \to Y$, $\tilde{h}: D \to \prod_{i \in I} D_i$ категории $Set_{\star}$ такие, что $f_i = p_{A_i} \circ \tilde{f}$, $g_i = \tilde{g} \circ q_{X_i}$ и $h_i = p_{D_i} \circ \tilde{h}$ для любого $i \in I$, то есть $\tilde{f}(b)_i = f_i(b)$, $\tilde{g}(x) = g_i(x)$ и $\tilde{h}(d)_i = h_i(d)$ для любых $b \in  B$, $x \in X_i$, $d \in D$. Следовательно, $(p_{A_i}, q_{X_i}, p_{D_i}) \circ (\tilde{f},\tilde{g},\tilde{h}) = (f_i, g_i, h_i)$ для любого $i \in I$ в категории $Chu_{\widetilde{Set}}$. УТОЧНИТЬ.
+    Пусть $t: B \times Y \to D$ --- объект категории $Chu_{\widetilde{Set}}$, $(f_i,g_i,h_i): t \to r_i$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$. Для любого $h_i: D \to D_i$, $i \in I$, построим морфизм $\tilde{h}_i: D \to r_i(A_i \times X_i)$ категории $Set_\star$ следующим образом: $\tilde{h}_i(d) = 
+    \begin{cases}
+        h_i(d),& \text{если } d = t(b,g_i(x_i)) \text{ для некоторых } b \in B, x_i \in X_i,\\
+        \star,& \text{иначе},
+    \end{cases}$
+    для любого $d \in D$. Поскольку $(f_i,g_i,h_i)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$, то $m_i(\tilde{h}_i(t(b,g_i(x_i)))) = h_i(t(b,g_i(x_i))) = r_i(f_i(b),x_i)$ для любых $b \in B$, $x_i \in X_i$. Следовательно, $(f_i,g_i,m_i \circ \tilde{h}_i): t \to r_i$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ для любого $i \in I$.
 
-    Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то есть для любых $b \in B$, $x \in X_i$ имеет место равенство $\tilde{h}(t(b,\tilde{g}(x))) = r(\tilde{f}(b),x)$. Так как $(p_{A_i},q_{X_i},p_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $r_i(p_{A_i}(a),x) = p_{D_i}(r(a,q_{X_i}(x)))$ для любых $a \in \prod_{i \in I} A_i$, $x \in X_i$. Из того, что $h_i = p_{D_i} \circ \tilde{h}$ и $g_i = \tilde{g} \circ q_{X_i}$ следует, что $p_{D_i}(\tilde{h}(t(b,\tilde{g}(x)))) = h_i(t(b,g_i(x)))$ для любых $a \in \prod_{i \in I} A_i$, $x \in X_i$. Так как $(f_i,g_i,h_i)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $h_i(t(b,g_i(x))) = r(f_i(b),x)$ для любых $a \in \prod_{i \in I} A_i$, $x \in X$. Поскольку $\tilde{f}(a) = f_i(a)$, то $t(f_i(a),y) = t(\tilde{f}(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(t(b,\tilde{g}(x))) = r(\tilde{f}(b),x)$.
+    Так как $\prod_{i \in I} A_i$ и $\prod_{i \in I} r_i(A_i \times X_i)$ --- произведения $A_i$, $ i \in I$, и $r_i(A_i \times X_i)$, $i \in I$, соответственно, а $\coprod_{i \in I} X_i$ --- копроизведение $X_i$, $i \in I$, в категории $Set_{\star}$, то существуют единственные морфизмы $\tilde{f}: B \to \prod_{i \in I} A_i$, $\tilde{g}: \coprod_{i \in I} X_i \to Y$, $\tilde{h}: D \to \prod_{i \in I} r_i(A_i \times X_i)$ категории $Set_{\star}$ такие, что $f_i = p_{A_i} \circ \tilde{f}$, $g_i = \tilde{g} \circ q_{X_i}$ и $\tilde{h}_i = \tilde{p}_i \circ \tilde{h}$ для любого $i \in I$, то есть $p_{A_i}(\tilde{f}(b)) = f_i(b)$, $\tilde{g}(x_i) = g_i(x_i)$ и $\tilde{p}_i(\tilde{h}(d)) = \tilde{h}_i(d)$ для любых $b \in  B$, $x_i \in X_i$, $d \in D$, $i \in I$.
+
+    Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то есть для любых $b \in B$, $x_i \in X_i$, $i \in I$, имеет место равенство $\tilde{h}(t(b,\tilde{g}(x_i))) = r(\tilde{f}(b),x_i)$. Поскольку $\prod_{i \in I} r_i(A_i \times X_i)$ вместе с семейством $\{\tilde{p}_i: \prod_{i \in I} r_i(A_i \times X_i) \to r_i(A_i \times X_i) \mid i \in I\}$ морфизмов категории $Set_\star$ является произведением объектов $r_i(A_i \times X_i)$, $i \in I$, то для любых $b \in B$, $x \in X_i$ равенство $\tilde{h}(t(b,\tilde{g}(x_i))) = r(\tilde{f}(b),x_i)$ равносильно равенству $\tilde{p}_j(\tilde{h}(t(b,\tilde{g}(x_i)))) = \tilde{p}_j(r(\tilde{f}(b),x_i))$ для любых $b \in B$, $x_i \in I$, $i,j \in I$. Тогда из равенств
+    \begin{multline*}
+        \tilde{p}_j(\tilde{h}(t(b,\tilde{g}(x_i)))) = \tilde{h}_j(t(b,g_i(x_i))) =\\= 
+        \begin{cases}
+            h_i(t(b,g_i(x_i))) = r_i(f_i(b),x_i) = r_j(f_j(b),x_i),& \text{если } i = j\\
+            \star,& \text{если } i \ne j
+        \end{cases} =\\=
+        \tilde{p}_j(r(\tilde{f}(b),x_i))
+    \end{multline*}
+    для любых $b \in B$, $x_i \in X_i$, $i,j \in I$ следует, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$.
+
+    Покажем, что $(p_{A_i},q_{X_i},p_i) \circ (\tilde{f},\tilde{g},\tilde{h}) = (f_i,g_i,h_i)$ для любого $i \in I$, то есть $p_{A_i} \circ \tilde{f} = f_i$, $\tilde{g} \circ q_{X_i} = g_i$ и для любого $d \in D$ если $d = t(b,g_i(x_i))$, то $(p_i \circ \tilde{h})(d) = h_i(d) = r_i(f_i(b),x_i)$. Из определения $\tilde{f}$ и $\tilde{g}$ следует, что $p_{A_i} \circ \tilde{f} = f_i$ и $\tilde{g} \circ q_{X_i} = g_i$ для любого $i \in I$. Пусть $d \in D$ и $d = t(b,g_i(x_i))$ для некоторых $b \in B$, $x_i \in X_i$, $i \in I$. Тогда
+    \begin{multline*}
+        (p_i \circ \tilde{h})(d) = (m_i \circ \tilde{p}_i \circ \tilde{h})(d) = (m_i \circ \tilde{h}_i)(d) = m_i(\tilde{h}_i(d)) = \tilde{h}_i(d) =\\=
+        \tilde{h}_i(t(b,g_i(x_i))) = h_i(t(b,g_i(x_i))) = h_i(d) = r_i(f_i(b),x_i).
+    \end{multline*}
+    Следовательно, $(p_{A_i},q_{X_i},p_i) \circ (\tilde{f},
+    \tilde{g},\tilde{h}) = (f_i,g_i,h_i)$ для любого $i \in I$.
+
+    Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- единственный морфизм такой, что $(p_{A_i},q_{X_i},p_i) \circ (\tilde{f},\tilde{g},\tilde{h}) = (f_i,g_i,h_i)$ для любого $i \in I$. Пусть $(f',g',h'): t \to r$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ такое, что $(p_{A_i},q_{X_i},p_i) \circ (f',g',h') = (f_i,g_i,h_i)$ для любого $i \in I$, то есть $p_{A_i} \circ f' = f_i$, $g' \circ q_{X_i} = g_i$ и для любого $d \in D$ если $d = t(b,g_i(x_i))$, то $(p_i \circ h')(d) = h_i(d) = r_i(f_i(b),x_i)$ для любого $i \in I$. Из определения $\tilde{f}$ и $\tilde{g}$ следует, что $f' = \tilde{f}$ и $g' = \tilde{g}$. Осталось показать, что $(\tilde{f},\tilde{g},h') = (\tilde{f},\tilde{g},\tilde{h})$, то есть для любого $d \in D$ если $d = t(b,g_i(x_i))$, то $h'(d) = \tilde{h}(d) = r(\tilde{f},x_i)$. Поскольку $\prod_{i \in I} r_i(A_i \times X_i)$ вместе с семейством $\{\tilde{p}_i: \prod_{i \in I} r_i(A_i \times X_i) \to r_i(A_i \times X_i) \mid i \in I\}$ морфизмов категории $Set_\star$ является произведением объектов $r_i(A_i \times X_i)$, $i \in I$, то для любых $b \in B$, $x \in X_i$ равенства $h'(d) = \tilde{h}(d) = r(\tilde{f}(b),x_i)$ равносильны равенствам $\tilde{p}_j(h'(d)) = \tilde{p}_j(\tilde{h}(d)) = \tilde{p}_j(r(\tilde{f}(b),x_i))$ для любых $b \in B$, $x_i \in I$, $i,j \in I$.  Пусть $d \in D$ и $d = t(b,g_i(x_i))$. Тогда если $i = j$, то
+    $$
+        \tilde{p}_j(h'(d)) = m_i(\tilde{p}_i(h'(d))) = p_i(h'(d)) = p_i(\tilde{h}(d)) = h_i(d) = r_i(f_i(b),x_i),
+    $$
+    иначе, если $i \ne j$, то
+    $$
+        \tilde{p}_j(h'(d)) = \tilde{p}_j(h'(t(b,g'(x_i)))) = \tilde{p}_j(r(f'(b),x_i)) = \star = \tilde{p}_j(r(\tilde{f}(b),x_i)) = \tilde{p}_j(\tilde{h}(t(b,\tilde{g}(x_i)))).
+    $$
+    Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) = (f',g',h')$ в категории $Chu_{\widetilde{Set}}$.
 \end{proof}
 
 \section*{Категория $Chu(\GAct_{\star})$}
@@ -235,7 +274,7 @@ $$
 \begin{proof}
     \textbf{Необходимость.} Пусть $(f,g,h): r \to t$ --- мономорфизм категории $Chu_{\widetilde{\GAct}}$.
 
-    Покажем, что $g$ --- эпиморфизм категории $\GAct_{\star}$. Предположим, что $X_1 \ne X$, где $X_1 = g(Y)$. Через $X_0$ обозначим фактор-полигон полигона $X$ по конгруэнции Риса $\rho_{X_1}$. Определим объект $w: A \otimes (X_0 \times X) \to D$ и морфизмы $(1_A,g_1,1_D), (1_A,g_2,1_D): w \to r$ категори $Chu_{\widetilde{\GAct}}$ следующим образом: $w(a \otimes (x_0,x)) = r(a \otimes x)$, $g_1(x) = (X_1,x)$, $g_2(x) = (x/\rho_{X_1}, x)$, для любых $a \in A$, $x \in X$, $x_0 \in X_0$. Из определения объекта $w$ категории $Chu_{\widetilde{\GAct}}$ следует равенство
+    Покажем, что $g$ --- эпиморфизм категории $\GAct_{\star}$. Предположим, что $X_1 \ne X$, где $X_1 = g(Y)$. Через $X_0$ обозначим фактор-полигон полигона $X$ по конгруэнции Риса $\rho_{X_1}$. Определим объект $w: A \otimes (X_0 \times X) \to D$ и морфизмы $(1_A,g_1,1_D), (1_A,g_2,1_D): w \to r$ категории $Chu_{\widetilde{\GAct}}$ следующим образом: $w(a \otimes (x_0,x)) = r(a \otimes x)$, $g_1(x) = (X_1,x)$, $g_2(x) = (x/\rho_{X_1}, x)$, для любых $a \in A$, $x \in X$, $x_0 \in X_0$. Из определения объекта $w$ категории $Chu_{\widetilde{\GAct}}$ следует равенство
     $$
         w(a \otimes g_1(x)) = w(a \otimes g_2(x)) = r(a \otimes x),
     $$ 
