@@ -176,6 +176,20 @@ $$
     Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то есть для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$. Так как $(q_{A_i},p_{X_i},q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $r(q_{A_i}(a),\tilde{g}(y)) = q_{D_i}(r_i(a,(p_{X_i} \circ \tilde{g})(y)))$ для любых $a \in A_i$, $y \in Y$. Из того, что $h_i = \tilde{h} \circ q_{D_i}$ и $g_i = p_{X_i} \circ \tilde{g}$ следует, что $\tilde{h}(r(a,\tilde{g}(y))) = (\tilde{h} \circ q_{D_i})(r_i(a,(p_{X_i} \circ \tilde{g})(y))) = h_i(r_i(a,g_i(y)))$ для любых $a \in A_i$, $y \in Y$. Так как $(f_i,g_i,h_i)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $h_i(r_i(a,g_i(y))) = t(f_i(a),y)$ для любых $a \in A_i$, $y \in Y$. Поскольку $\tilde{f}(a) = f_i(a)$, то $t(f_i(a),y) = t(\tilde{f}(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$.
 \end{proof}
 
+\begin{theorem}\label{iso}
+    Обекты $r: A \times X \to D$ и $\tilde{r}: A \times X \to r(A \times X)$ категории $Chu_{\widetilde{Set}}$, где $\tilde{r}(a,x) = r(a,x)$ для любых $a \in A$, $x \in X$, изоморфны.
+\end{theorem}
+\begin{proof}
+    Построим морфизм $(f,g,h): r \to \tilde{r}$ следующим образом: $f = id_A$, $g = id_X$, $h(d) = 
+    \begin{cases}
+        r(a,x),& \text{если } d \in r(A \times X),\\
+        \star,& \text{иначе}.
+    \end{cases}$
+    Из равенства $h(r(a,x)) = r(a,x)$ для любых $a \in A$, $x \in X$ следует, что $(f,g,h)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$. Построим морфизм $(\tilde{f},\tilde{g},\tilde{h}): \tilde{r} \to r$ следующим образом: $\tilde{f} = id_A$, $\tilde{g} = id_X$, $\tilde{h}$ --- естественное вложение. Из равенства $\tilde{h}(r(a,x)) = r(a,x)$ для любых $a \in A$, $x \in X$ следует, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$.
+
+    Поскольку $(\tilde{f},\tilde{g},\tilde{h}) \circ (f,g,h) = (1_A,1_X,\tilde{h} \circ h)$ и для любого $d \in D$ если $d = r(a,x)$, то $\tilde{h}(d) = h(d) = r(a,x)$, то $(\tilde{f},\tilde{g},\tilde{h}) \circ (f,g,h) = 1_r$. Поскольку $(f,g,h) \circ (\tilde{f},\tilde{g},\tilde{h}) = (1_A,1_X,h \circ \tilde{h})$ и для любого $d \in r(A \times X)$ если $d = r(a,x)$, то $h(d) = \tilde{h}(d) = r(a,x)$, то $(f,g,h) \circ (\tilde{f},\tilde{g},\tilde{h}) = 1_{\tilde{r}}$.
+\end{proof}
+
 \begin{theorem}\label{product}
     Пусть $r_i: A_i \times X_i \to D_i$ --- объекты категории $Chu_{\widetilde{Set}}$, $i \in I$. Объект $r: \prod_{i \in I} A_i \times \coprod_{i \in I} X_i \to \prod_{i \in I} r_i(A_i \times X_i)$ категории $Chu_{\widetilde{Set}}$ вместе с семейством $\{(p_{A_i},q_{X_i},p_i): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_{\widetilde{Set}}$, где $\tilde{p}_j(r(a,x_i)) = 
     \begin{cases}
