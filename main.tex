@@ -332,6 +332,17 @@ $$
     Следовательно, $(f_1,g_1,h_1) = (f_2,g_2,h_2)$ в категории $Chu_{\widetilde{\GAct}}$ и преобразование $(f,g,h): r \to t$ является мономорфизмом категории $Chu_{\widetilde{\GAct}}$.
 \end{proof}
 
+\begin{theorem}\label{coproduct-gact}
+    Пусть $r_i: A_i \otimes X_i \to D_i$ --- объекты категории $Chu_{\widetilde{\GAct}}$, $i \in I$. Объект $r: \coprod_{i \in I} A_i \otimes \prod_{i \in I} X_i \to \coprod_{i \in I} D_i$ категории $Chu_{\widetilde{\GAct}}$ вместе с семейством $\{(q_{A_i},p_{X_i},q_{D_i}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_{\widetilde{\GAct}}$, где $r(a,x) = r_i(a,p_{X_i}(x)) = r_i(a, x_i)$, $q_{A_i}: A_i \to \coprod_{i \in I} A_i$, $q_{D_i}: D_i \to \coprod_{i \in I} D_i$ --- естественные вложения, $p_{X_i}: \prod_{i \in I} X_i \to X_i$ --- каноническая проекция для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_{\widetilde{\GAct}}$.
+\end{theorem}
+\begin{proof}
+    Пусть условия теоремы выполнены. Поскольку $q_{D_i}(r_i(a,p_{X_i}(x))) = r_i(a,x_i) = r(a,x) = r(q_{A_i}(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $i \in I$, то $(q_{A_i}, p_{X_i}, q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{\GAct}}$ для любого $i \in I$.
+
+    Пусть $t: B \otimes Y \to D$ --- объект категории $Chu_{\widetilde{\GAct}}$, $(f_i,g_i,h_i): r_i \to t$ --- преобразование Чу категории $Chu_{\widetilde{\GAct}}$ для любого $i \in I$. Так как $\coprod_{i \in I} A_i$ и $\coprod_{i \in I} D_i$ --- копроизведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\prod_{i \in I} X_i$ --- произведение $A_i$, $i \in I$ в категории $\GAct_{\star}$, то существуют единственные морфизмы $\tilde{f}: \coprod_{i \in I} A_i \to B$, $\tilde{g}: Y \to \prod_{i \in I} X_i$, $\tilde{h}: \coprod_{i \in I} D_i \to D$ категории $\GAct_{\star}$ такие, что $f_i = \tilde{f} \circ q_{A_i}$, $g_i = p_{X_i} \circ \tilde{g}$ и $h_i = \tilde{h} \circ q_{D_i}$ для любого $i \in I$, то есть $\tilde{f}(a) = f_i(a)$, $\tilde{g}(y)_i = g_i(y)$ и $\tilde{h}(d) = h_i(d)$ для любых $a \in A_i$, $y \in Y$, $d \in D_i$. Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) \circ (q_{A_i}, p_{X_i}, q_{D_i}) = (f_i, g_i, h_i)$ для любого $i \in I$ в категории $Chu_{\widetilde{\GAct}}$.
+
+    Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_{\widetilde{\GAct}}$, то есть для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$. Так как $(q_{A_i},p_{X_i},q_{D_i})$ --- преобразование Чу категории $Chu_{\widetilde{\GAct}}$, то $r(q_{A_i}(a),\tilde{g}(y)) = q_{D_i}(r_i(a,(p_{X_i} \circ \tilde{g})(y)))$ для любых $a \in A_i$, $y \in Y$. Из того, что $h_i = \tilde{h} \circ q_{D_i}$ и $g_i = p_{X_i} \circ \tilde{g}$ следует, что $\tilde{h}(r(a,\tilde{g}(y))) = (\tilde{h} \circ q_{D_i})(r_i(a,(p_{X_i} \circ \tilde{g})(y))) = h_i(r_i(a,g_i(y)))$ для любых $a \in A_i$, $y \in Y$. Так как $(f_i,g_i,h_i)$ --- преобразование Чу категории $Chu_{\widetilde{\GAct}}$, то $h_i(r_i(a,g_i(y))) = t(f_i(a),y)$ для любых $a \in A_i$, $y \in Y$. Поскольку $\tilde{f}(a) = f_i(a)$, то $t(f_i(a),y) = t(\tilde{f}(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$.
+\end{proof}
+
 \end{document}
 
 \begin{theorem}[критерий существования уравнителя]
