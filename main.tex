@@ -87,7 +87,7 @@ $$\xymatrix@R=2em@C=2em{
     $$
         r_2(a,x_1) = r_2(f(a'),x_1) = h(r(a',f^-(x_1))) = h(r(a',f^-(x_2))) = r_2(f(a'),x_2) = r_2(a,x_2).
     $$
-    Определим объект $w: A_2 \wedge \{\star,x_0\} \to D_2$ и морфизмы $(1_{A_2},g_1,1_{D_2}), (1_{A_2},g_2,1_{D_2}): r_2 \to w$ категории $Chu_\sim(C_\star)$ следующим образом: $w(a,\star) = \star$, $w(a,x_0) = r_2(a,x_1)$, $g_1(\star) = g_2(\star) = \star$, $g_1(x_0) = x_1$, $g_2(x_0) = x_2$ для любых $a \in A_2$. Корректность определения морфизмов $(1_{A_2},g_1,1_{D_2}), (1_{A_2},g_2,1_{D_2})$ следует из равенств:
+    Определим объект $w: A_2 \wedge \{\star,x_0\} \to D_2$ и морфизмы $(e_{A_2},g_1,\widetilde{e_{D_2}}), (e_{A_2},g_2,\widetilde{e_{D_2}}): r_2 \to w$ категории $Chu_\sim(C_\star)$ следующим образом: $w(a,\star) = \star$, $w(a,x_0) = r_2(a,x_1)$, $g_1(\star) = g_2(\star) = \star$, $g_1(x_0) = x_1$, $g_2(x_0) = x_2$ для любых $a \in A_2$. Корректность определения морфизмов $(e_{A_2},g_1,\widetilde{e_{D_2}}), (e_{A_2},g_2,\widetilde{e_{D_2}})$ следует из равенств:
     $$
         w(a,\star) = r_2(a,g_1(\star)) = r_2(a,g_2(\star)) = r_2(a,\star) = \star,
     $$
@@ -101,7 +101,7 @@ $$\xymatrix@R=2em@C=2em{
     $$
         (f^- \circ g_1)(x_0) = f^-(g_1(x_0)) = f^-(x_1) = f^-(x_2) = f^-(g_2(x_0)) = (f^- \circ g_2)(x_0),
     $$
-    то $(1_{A_2},g_1,1_{D_2}) \circ (f^+,f^-,\fo) = (1_{A_2},g_2,1_{D_2}) \circ (f^+,f^-,\fo)$. Поскольку $(f^+,f^-,\fo)$ --- эпиморфизм категории $Chu_\sim(C_\star)$, то $g_1 = g_2$. Противоречие.
+    то $(e_{A_2},g_1,\widetilde{e_{D_2}}) \circ (f^+,f^-,\fo) = (e_{A_2},g_2,\widetilde{e_{D_2}}) \circ (f^+,f^-,\fo)$. Поскольку $(f^+,f^-,\fo)$ --- эпиморфизм категории $Chu_\sim(C_\star)$, то $g_1 = g_2$. Противоречие.
 
     \textbf{Достаточность.} Пусть $(f^+,f^-,\fo): r_1 \to r_2$ --- преобразование Чу категории $Chu_\sim(C_\star)$, где $f^+$ --- эпиморфизм, $f^-$ --- мономорфизм категории $C_{\star}$. Предположим, что $(f_1,g_1,\widetilde{h_1}), (f_2,g_2,\widetilde{h_2}): r_2 \to w$ --- преобразования Чу категории $Chu_\sim(C_\star)$ такие, что $(f_1,g_1,\widetilde{h_1}) \circ (f^+,f^-,\fo) = (f_2,g_2,\widetilde{h_2}) \circ (f^+,f^-,\fo)$, где $w: E \wedge Z \to P$ --- пространство Чу категории $Chu_\sim(C_\star)$. Тогда $f_1 \circ f^+ = f_2 \circ f^+$, $f^- \circ g_1 = f^- \circ g_2$ и для любого $d \in D_1$ если $d = r_1(a,(f^- \circ g_1)(z)) = r_2(a,(f^- \circ g_2)(z))$, то $(h_1 \circ f^0)(d) = (h_2 \circ f^0)(d) = w((f_1 \circ f^+)(a), z) = w((f_2 \circ f^+)(a), z)$. Покажем, что для любого $d \in D_2$ если $d = r_2(a,g_1(z))$, то $h_1(d) = h_2(d) = w(f_1(a),z)$. Пусть $d \in D_2$ и $d = r_2(a,g_1(z))$ для некоторых $a \in A_2$, $z \in Z$. Поскольку $f^+$ --- эпиморфизм, $f^-$ --- мономорфизм категории $C_\star$, то $f_1 = f_2$, $g_1 = g_2$. Так как $f^+$ --- эпиморфизм, то $a = f(a')$ для некоторого $a' \in A_1$. Тогда 
     \begin{multline*}
@@ -111,7 +111,81 @@ $$\xymatrix@R=2em@C=2em{
     Следовательно, $(f_1,g_1,\widetilde{h_1}) = (f_2,g_2,\widetilde{h_2})$ в категории $Chu_\sim(C_\star)$ и преобразование $(f^+,f^-,\fo): r_1 \to r_2$ является эпиморфизмом категории $Chu_\sim(C_\star)$.
 \end{proof}
 
-НИЖЕ КРИТЕРИИ ЭПИ, МОНОМОРФИЗМОВ, КОНСТРУКЦИИ ПРОИЗВЕДЕНИЯ И КОПРОИЗВЕДЕНИЯ ДЛЯ СЛУЧАЕВ, КОГДА $C = Set$ и $C = \GAct$.
+\begin{theorem}\label{monomorphism-c}
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$ и $r_2: A_2 \wedge X_2 \to C$ --- объекты категории $Chu_\sim(C_\star)$. Преобразование $(f^+,f^-,\fo): r_1 \to r_2$ категории $Chu_\sim(C_\star)$ является мономорфизмом тогда и только тогда, когда $f^+: A_1 \to A_2$ --- мономорфизм, $f^-: X_2 \to X_1$ --- эпиморфизм категории $C_\star$.
+\end{theorem}
+\begin{proof}
+    \textbf{Необходимость.} Пусть $(f^+,f^-,\fo): r_1 \to r_2$ --- мономорфизм категории $Chu_\sim(C_\star)$.
+
+    Покажем, что $f^-$ --- эпиморфизм категории $C_\star$. Предположим, что $Y_1 \ne X_1$, где $Y_1 = f^-(X_2)$. Тогда существует $Y_2$ --- подсистема $X_1$ такая, что $X_1 = Y_1 \sqcup Y_2$. Через $Y_0$ обозначим факторсистему алгебраической системы $X_1$ по конгруэнции $\theta$ такой, что $(y,y') \in \theta \Leftrightarrow y, y' \in Y_1$. Определим объект $w: A_1 \wedge (Y_0 \times X_1) \to D_1$ и морфизмы $(e_{A_1},g_1,\widetilde{e_{D_1}}), (e_{A_1},g_2,\widetilde{e_{D_1}}): w \to r_1$ категории $Chu_\sim(C_\star)$ следующим образом: $w(a,(x_0,x)) = r_1(a,x)$, $g_1(x) = (Y_1,x)$, $g_2(x) = (x/\theta, x)$, для любых $a \in A_1$, $x \in X_1$, $x_0 \in X_0$. Из определения объекта $w$ категории $Chu_\sim(C_\star)$ следует равенство
+    $$
+        w(a,g_1(x)) = w(a,g_2(x)) = r_1(a,x),
+    $$ 
+    где $a \in A_1$, $x \in X_1$, что доказывает корректность определения морфизмов $(e_{A_1},g_1,\widetilde{e_{D_1}})$, $(e_{A_1},g_2,\widetilde{e_{D_1}})$. Если $x \in X_2$, то $f^-(x) \in X_1$ и $g_1(f^-(x)) = g_2(f^-(x))$, то есть $g_1 \circ f^- = g_2 \circ f^-$. Тогда $(f^+,f^-,\fo) \circ (e_{A_1},g_1,\widetilde{e_{D_1}}) = (f^+,f^-,\fo) \circ (e_{A_1},g_2,\widetilde{e_{D_1}})$. Поскольку $(f^+,f^-,\fo)$ --- мономорфизм категории $Chu_\sim(C_\star)$, то $g_1 = g_2$. Противоречие.
+
+    Покажем, что $f^+$ --- мономорфизм категории $C_\star$. Предположим, что существуют различные $a_1, a_2 \in A_1$ такие, что $f^+(a_1) = f^+(a_2)$. Определим объект $w: \{\star,a',a''\} \wedge X_1 \to D_1'$, где $D_1' = r_1(\{a_1,a_2\} \wedge X_1)$ и морфизмы $(f_1,e_{X_1},\widetilde{h_1}), (f_2,e_{X_1},\widetilde{h_2}): w \to r_1$ категории $Chu_\sim(C_\star)$ следующим образом $w(\star,x) = \star$, $w(a',x) = r_1(a_1,x)$, $w(a'',x) = r_1(a_2,x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(a') = f_2(a'') = a_1$, $f_1(a'') = f_2(a') = a_2$, $h_1(r_1(a_1,x)) = h_2(r_1(a_2,x)) = r_1(a_1,x)$, $h_1(r_1(a_2,x)) = h_2(r_1(a_1,x)) = r_1(a_2,x)$ для любых $x \in X_1$. Корректность определения морфизмов $(f_1,e_X,\widetilde{h_1}), (f_2,e_X,\widetilde{h_2})$ следует из равенств
+    $$
+        h_1(w(\star,x)) = h_2(w(\star,x)) = \star = r_1(f_1(\star),x) = r_1(f_2(\star),x),
+    $$
+    $$
+        h_1(w(a',x)) = h_1(r_1(a_1,x)) = r_1(a_1,x) = r_1(f_1(a'),x),
+    $$
+    $$
+        h_2(w(a',x)) = h_2(r_1(a_1,x)) = r_1(a_2,x) = r_1(f_2(a'),x),
+    $$
+    $$
+        h_1(w(a'',x)) = h_1(r_1(a_2,x)) = r_1(a_2,x) = r_1(f_1(a''),x),
+    $$
+    $$
+        h_2(w(a'',x)) = h_2(r_1(a_2,x)) = r_1(a_1,x) = r_1(f_2(a''),x)
+    $$
+    для любых $x \in X_1$.
+    Так как $(f^+ \circ f_1)(\star) = \star = (f^+ \circ f_2)(\star)$ и $f^+(f_1(a')) = f^+(f_2(a'')) = f^+(a_1) = f^+(a_2) = f^+(f_1(a'')) = f^+(f_2(a'))$,
+    то $f^+ \circ f_1 = f^+ \circ f_2$. Из того, что $f^-$ --- эпиморфизм, следует, что $x = f^-(y)$ для некоторого $y \in X_2$ для любого $x \in X_1$. Тогда из равенств
+    $$
+        (f^0 \circ h_1)(w(\star,x)) = \star = (f^0 \circ h_2)(w(\star,x)),
+    $$
+    \begin{multline*}
+        (f^0 \circ h_1)(w(a',x)) = f^0(h_1(r_1(a_1,x))) = f^0(r_1(a_1,f^-(y))) = r_2(f^+(f_1(a')),x)  =\\= 
+        r_2(f^+(a_1),y) = r_2(f^+(a_2),y) = f^0(r_1(a_2,f^-(y))) = f^0(h_2(r_1(a_1,x))) = (f^0 \circ h_2)(w(a',x)),
+    \end{multline*}
+    \begin{multline*}
+        (f^0 \circ h_1)(w(a'',x)) = f^0(h_1(r_1(a_2,x))) = f^0(r_1(a_2,f^-(y))) = r_2(f^+(f_1(a'')),x)  =\\= 
+        r_2(f^+(a_2),y) = r_2(f^+(a_1),y) = f^0(r_1(a_1,f^-(y))) = f^0(h_2(r_1(a_2,x))) = (f^0 \circ h_2)(w(a'',x))
+    \end{multline*}
+    для любых $x \in X_1$ следует, что для любого $d' \in D_1'$ если $d' = w(a,x)$, то $(f^0 \circ h_1)(d') = (f^0 \circ h_2)(d') = r_2((f^+ \circ f_1)(a),x)$. Следовательно, $(f^+,f^-,\fo) \circ (f_1,e_X,\widetilde{h_1}) = (f^+,f^-,\fo) \circ (f_2,e_X,\widetilde{h_2})$. Поскольку $(f^+,f^-,\fo)$ --- мономорфизм категории $Chu_\sim(C_\star)$, то $f_1 = f_2$, то есть $a_1 = a_2$. Противоречие.
+
+    \textbf{Достаточность.} Пусть $(f^+,f^-,\fo): r_1 \to r_2$ --- преобразование Чу категории $Chu_\sim(C_\star)$, где $f^+$ --- мономорфизм, $f^-$ --- эпиморфизм категории $C_\star$. Предположим, что $(f_1,g_1,\widetilde{h_1}), (f_2,g_2,\widetilde{h_2}): w \to r_1$ --- преобразования Чу категории $Chu_\sim(C_\star)$ такие, что $(f^+,f^-,\fo) \circ (f_1,g_1,\widetilde{h_1}) = (f^+,f^-,\fo) \circ (f_2,g_2,\widetilde{h_2})$, где $w: E \wedge Z \to P$ --- пространство Чу категории $Chu_\sim(C_\star)$. Тогда $f^+ \circ f_1 = f^+ \circ f_2$, $g_1 \circ f^- = g_1 \circ f^-$ и для любого $p \in P$ если $p = w(e,(g_1 \circ f^-)(y)) = w(e,(g_2 \circ f^-)(y))$, то $(f^0 \circ h_1)(p) = (f^0 \circ h_2)(p) = r_2((f^+ \circ f_1)(e), y) = r_2((f^+ \circ f_2)(e), y)$. Покажем, что для любого $p \in P$ если $p = w(e,g_1(x))$, то $h_1(p) = h_2(p) = r_1(f_1(e),x)$. Пусть $p \in P$ и $p = w(e,g_1(x))$ для некоторых $e \in E$, $x \in X_1$. Поскольку $f^+$ --- мономорфизм, $f^-$ --- эпиморфизм категории $C_\star$, то $f_1 = f_2$, $g_1 = g_2$. Тогда 
+    $$
+        h_1(p) = h_1(w(e,g_1(x))) = r_1(f_1(e),x) = r_1(f_2(e),x) = h_2(w(e,g_2(x))) = h_2(p).
+    $$
+    Следовательно, $(f_1,g_1,\widetilde{h_1}) = (f_2,g_2,\widetilde{h_2})$ в категории $Chu_\sim(C_\star)$ и преобразование $(f^+,f^-,\fo): r_1 \to r_2$ является мономорфизмом категории $Chu_\sim(C_\star)$.
+\end{proof}
+
+\begin{theorem}\label{coproduct-c}
+    Пусть $r_i: A_i \wedge X_i \to D_i$ --- объекты категории $Chu_\sim(C_\star)$, $i \in I$. Объект $r: \coprod_{i \in I} A_i \wedge \prod_{i \in I} X_i \to \coprod_{i \in I} D_i$ категории $Chu_\sim(C_\star)$ вместе с семейством $\{(q_{A_i},p_{X_i},\widetilde{q_{D_i}}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_\sim(C_\star)$, где $r(a,x) = r_i(a,p_{X_i}(x)) = r_i(a, x_i)$, $q_{A_i}: A_i \to \coprod_{i \in I} A_i$, $q_{D_i}: D_i \to \coprod_{i \in I} D_i$ --- естественные вложения, $p_{X_i}: \prod_{i \in I} X_i \to X_i$ --- каноническая проекция для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_\sim(C_\star)$.
+\end{theorem}
+\begin{proof}
+    Пусть условия теоремы выполнены. Поскольку $q_{D_i}(r_i(a,p_{X_i}(x))) = r_i(a,x_i) = r(a,x) = r(q_{A_i}(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $i \in I$, то $(q_{A_i}, p_{X_i}, q_{D_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$.
+
+    Пусть $t: B \times Y \to D$ --- объект категории $Chu_\sim(C_\star)$, $(f_i,g_i,h_i): r_i \to t$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$. Так как $\coprod_{i \in I} A_i$ и $\coprod_{i \in I} D_i$ --- копроизведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\prod_{i \in I} X_i$ --- произведение $A_i$, $i \in I$ в категории $Set_{\star}$, то существуют единственные морфизмы $\tilde{f}: \coprod_{i \in I} A_i \to B$, $\tilde{g}: Y \to \prod_{i \in I} X_i$, $\tilde{h}: \coprod_{i \in I} D_i \to D$ категории $Set_{\star}$ такие, что $f_i = \tilde{f} \circ q_{A_i}$, $g_i = p_{X_i} \circ \tilde{g}$ и $h_i = \tilde{h} \circ q_{D_i}$ для любого $i \in I$, то есть $\tilde{f}(a) = f_i(a)$, $\tilde{g}(y)_i = g_i(y)$ и $\tilde{h}(d) = h_i(d)$ для любых $a \in A_i$, $y \in Y$, $d \in D_i$. Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) \circ (q_{A_i}, p_{X_i}, q_{D_i}) = (f_i, g_i, h_i)$ для любого $i \in I$ в категории $Chu_\sim(C_\star)$.
+
+    Покажем, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то есть для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$. Так как $(q_{A_i},p_{X_i},q_{D_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $r(q_{A_i}(a),\tilde{g}(y)) = q_{D_i}(r_i(a,(p_{X_i} \circ \tilde{g})(y)))$ для любых $a \in A_i$, $y \in Y$. Из того, что $h_i = \tilde{h} \circ q_{D_i}$ и $g_i = p_{X_i} \circ \tilde{g}$ следует, что $\tilde{h}(r(a,\tilde{g}(y))) = (\tilde{h} \circ q_{D_i})(r_i(a,(p_{X_i} \circ \tilde{g})(y))) = h_i(r_i(a,g_i(y)))$ для любых $a \in A_i$, $y \in Y$. Так как $(f_i,g_i,h_i)$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $h_i(r_i(a,g_i(y))) = t(f_i(a),y)$ для любых $a \in A_i$, $y \in Y$. Поскольку $\tilde{f}(a) = f_i(a)$, то $t(f_i(a),y) = t(\tilde{f}(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $\tilde{h}(r(a,\tilde{g}(y))) = t(\tilde{f}(a),y)$.
+\end{proof}
+
+\begin{theorem}\label{iso-c}
+    Обекты $r: A \times X \to D$ и $\tilde{r}: A \times X \to r(A \times X)$ категории $Chu_\sim(C_\star)$, где $\tilde{r}(a,x) = r(a,x)$ для любых $a \in A$, $x \in X$, изоморфны.
+\end{theorem}
+\begin{proof}
+    Построим морфизм $(f,g,h): r \to \tilde{r}$ следующим образом: $f = id_A$, $g = id_X$, $h(d) = 
+    \begin{cases}
+        r(a,x),& \text{если } d \in r(A \times X),\\
+        \star,& \text{иначе}.
+    \end{cases}$
+    Из равенства $h(r(a,x)) = r(a,x)$ для любых $a \in A$, $x \in X$ следует, что $(f,g,h)$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Построим морфизм $(\tilde{f},\tilde{g},\tilde{h}): \tilde{r} \to r$ следующим образом: $\tilde{f} = id_A$, $\tilde{g} = id_X$, $\tilde{h}$ --- естественное вложение. Из равенства $\tilde{h}(r(a,x)) = r(a,x)$ для любых $a \in A$, $x \in X$ следует, что $(\tilde{f},\tilde{g},\tilde{h})$ --- преобразование Чу категории $Chu_\sim(C_\star)$.
+
+    Поскольку $(\tilde{f},\tilde{g},\tilde{h}) \circ (f,g,h) = (1_A,1_X,\tilde{h} \circ h)$ и для любого $d \in D$ если $d = r(a,x)$, то $\tilde{h}(d) = h(d) = r(a,x)$, то $(\tilde{f},\tilde{g},\tilde{h}) \circ (f,g,h) = 1_r$. Поскольку $(f,g,h) \circ (\tilde{f},\tilde{g},\tilde{h}) = (1_A,1_X,h \circ \tilde{h})$ и для любого $d \in r(A \times X)$ если $d = r(a,x)$, то $h(d) = \tilde{h}(d) = r(a,x)$, то $(f,g,h) \circ (\tilde{f},\tilde{g},\tilde{h}) = 1_{\tilde{r}}$.
+\end{proof}
 
 \section*{Категория $Chu_{\widetilde{Set}}$}
 
@@ -167,7 +241,7 @@ $$\xymatrix@R=2em@C=2em{
     $$ 
     где $a \in A$, $x \in X$, что доказывает корректность определения морфизмов $(1_A,g_1,1_D)$, $(1_A,g_2,1_D)$. Если $y \in Y$, то $g(y) \in X_1$ и $g_1(g(y)) = g_2(g(y))$, то есть $g_1 \circ g = g_2 \circ g$. Тогда $(f,g,h) \circ (1_A,g_1,1_D) = (f,g,h) \circ (1_A,g_2,1_D)$. Поскольку $(f,g,h)$ --- мономорфизм категории $Chu_{\widetilde{Set}}$, то $g_1 = g_2$. Противоречие.
 
-    Покажем, что $f$ --- мономорфизм категории $Set_{\star}$. Предположим, что существуют различные $a_1, a_2 \in A$ такие, что $f(a_1) = f(a_2)$. Определим объект $w: \{\star,a',a''\} \times X \to D'$, где $D' = r(\{a_1,a_2\} \times X)$ и морфизмы $(f_1,1_X,1_D), (f_2,1_X,1_D): w \to r$ категории $Chu_{\widetilde{Set}}$ следующим образом $w(\star,x) = \star$, $w(a',x) = r(a_1,x)$, $w(a'',x) = r(a_2,x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(a') = f_2(a'') = a_1$, $f_1(a'') = f_2(a') = a_2$, $h_1(r(a_1,x)) = h_2(r(a_2,x)) = r(a_1,x)$, $h_1(r(a_2,x)) = h_2(r(a_1,x)) = r(a_2,x)$ для любых $x \in X$. Корректность определения морфизмов $(f_1,1_X,h_1), (f_2,1_X,h_2)$ следует из равенств
+    Покажем, что $f$ --- мономорфизм категории $Set_{\star}$. Предположим, что существуют различные $a_1, a_2 \in A$ такие, что $f(a_1) = f(a_2)$. Определим объект $w: \{\star,a',a''\} \times X \to D'$, где $D' = r(\{a_1,a_2\} \times X)$ и морфизмы $(f_1,1_X,h_1), (f_2,1_X,h_2): w \to r$ категории $Chu_{\widetilde{Set}}$ следующим образом $w(\star,x) = \star$, $w(a',x) = r(a_1,x)$, $w(a'',x) = r(a_2,x)$, $f_1(\star) = f_2(\star) = \star$, $f_1(a') = f_2(a'') = a_1$, $f_1(a'') = f_2(a') = a_2$, $h_1(r(a_1,x)) = h_2(r(a_2,x)) = r(a_1,x)$, $h_1(r(a_2,x)) = h_2(r(a_1,x)) = r(a_2,x)$ для любых $x \in X$. Корректность определения морфизмов $(f_1,1_X,h_1), (f_2,1_X,h_2)$ следует из равенств
     $$
         h_1(w(\star,x)) = h_2(w(\star,x)) = \star = r(f_1(\star),x) = r(f_2(\star),x),
     $$
