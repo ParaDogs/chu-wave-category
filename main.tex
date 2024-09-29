@@ -81,11 +81,15 @@ $$\xymatrix@R=2em@C=2em{
     \begin{cases}
         \star, & \text{если } \exists i: \varepsilon_i = \star,\\
         g^{(n)}(\varepsilon_1,\ldots,\varepsilon_n) \in B_2 & \text{если } \forall i\ \varepsilon_i \in B_2.
-    \end{cases}$ Определим объект $w: (B_0 \times A_2) \wedge X_2 \to D_2$ и морфизмы $(f_1,e_{X_2},\widetilde{e_{D_2}}), (f_2,e_{X_2},\widetilde{e_{D_2}}): r_2 \to w$ категории $Chu_\sim(C_\star)$ следующим образом: $w((b_0,a),x) = r_2(a,x)$, $f_1(a) = (B_1,a)$, $f_2(a) = (a/\theta,a)$ для любых $a \in A_2$, $b_0 \in B_0$, $x \in X_2$. Корректность определения морфизмов $(f_1,e_{X_2},\widetilde{e_{D_2}})$, $(f_2,e_{X_2},\widetilde{e_{D_2}})$ следует из равенств:
+    \end{cases}$ Определим объект $w: B_0 \wedge \{\star\} \to \{\star\}$ и морфизмы $(f_1,\star_{X_2},\widetilde{T_{D_2}}), (f_2,\star_{X_2},\widetilde{T_{D_2}}): r_2 \to w$ категории $Chu_\sim(C_\star)$ следующим образом: $f_1(a) = \star$, $f_2(a) = 
+    \begin{cases}
+        \star, & \text{если } a \in B_1,\\
+        a, & \text{если } a \in B_2,
+    \end{cases}$, для любых $a \in A_2$, $\star_{X_2}: \{\star\} \to X_2$ --- морфизм из определения объекта $(X_2,\star_{X_2})$ категории $C_\star$, $T_{D_2}: D_2 \to \{\star\}$ --- единственный морфизм в $\{\star\}$ поскольку $\star$ --- терминальный объект категории $C$. Корректность определения морфизмов $(f_1,\star_{X_2},\widetilde{T_{D_2}})$, $(f_2,\star_{X_2},\widetilde{T_{D_2}})$ следует из равенств:
     $$
-        r_2(a,x) = w(f_1(a),x) = w(f_2(a),x)
+        T_{D_2}(r_2(a,\star_{X_2}(\star))) = \star = w(f_1(a),\star) = w(f_2(a),\star)
     $$
-    для любых $a \in A_2$, $x \in X_2$. Если $a \in A_1$, то $f^+(a) \in B_1$ и $f_1(f^+(a)) = f_2(f^+(a))$, то есть $f_1 \circ f^+ = f_2 \circ f^+$. Тогда $(f_1,e_{X_2},\widetilde{e_{D_2}}) \circ (f^+,f^-,\fo) = (f_2,e_{X_2},\widetilde{e_{D_2}}) \circ (f^+,f^-,\fo)$. Поскольку $(f^+,f^-,\fo)$ --- эпиморфизм категории $Chu_\sim(C_\star)$, то $f_1 = f_2$. Противоречие.
+    для любых $a \in A_2$. Если $a \in A_1$, то $f^+(a) \in B_1$ и $f_1(f^+(a)) = f_2(f^+(a))$, то есть $f_1 \circ f^+ = f_2 \circ f^+$. Тогда $(f_1,\star,\widetilde{T_{D_2}}) \circ (f^+,f^-,\fo) = (f_2,\star,\widetilde{T_{D_2}}) \circ (f^+,f^-,\fo)$. Поскольку $(f^+,f^-,\fo)$ --- эпиморфизм категории $Chu_\sim(C_\star)$, то $f_1 = f_2$. Противоречие.
 
     Покажем, что $f^-$ --- мономорфизм категории $C_\star$. Предположим, что существуют различные $x_1, x_2 \in X_2$ такие, что $f^-(x_1) = f^-(x_2)$. Пусть $a \in A_2$. Покажем, что $r_2(a,x_1) = r_2(a,x_2)$. Так как $f^+$ --- эпиморфизм, то существует $a' \in A_1$ такой, что $f^+(a') = a$. Тогда
     $$
