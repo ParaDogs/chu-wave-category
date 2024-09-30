@@ -80,12 +80,12 @@ $$\xymatrix@R=2em@C=2em{
     Покажем, что $f^+$ --- эпиморфизм категории $C_\star$. Предположим, что $B_1 \ne A_2$, где $B_1 = f^+(A_1)$. Тогда существует $B_2$ --- подсистема $A_2$ такая, что $A_2 = B_1 \sqcup B_2$. Обозначим через $B_0 = \{\star\} \sqcup B_2$ алгебраическую систему сигнатуры $\Sigma$, где любая $n$-местная операция $g^{(n)}$ задается как $g^{(n)}(\varepsilon_1,\ldots,\varepsilon_n) = 
     \begin{cases}
         \star, & \text{если } \exists i: \varepsilon_i = \star,\\
-        g^{(n)}(\varepsilon_1,\ldots,\varepsilon_n) \in B_2 & \text{если } \forall i\ \varepsilon_i \in B_2.
+        g^{(n)}(\varepsilon_1,\ldots,\varepsilon_n) \in B_2, & \text{если } \forall i\ \varepsilon_i \in B_2.
     \end{cases}$ Определим объект $w: B_0 \wedge \{\star\} \to \{\star\}$ и морфизмы $(f_1,\star_{X_2},\widetilde{T_{D_2}}), (f_2,\star_{X_2},\widetilde{T_{D_2}}): r_2 \to w$ категории $Chu_\sim(C_\star)$ следующим образом: $f_1(a) = \star$, $f_2(a) = 
     \begin{cases}
         \star, & \text{если } a \in B_1,\\
         a, & \text{если } a \in B_2,
-    \end{cases}$, для любых $a \in A_2$, $\star_{X_2}: \{\star\} \to X_2$ --- морфизм из определения объекта $(X_2,\star_{X_2})$ категории $C_\star$, $T_{D_2}: D_2 \to \{\star\}$ --- единственный морфизм в $\{\star\}$ поскольку $\star$ --- терминальный объект категории $C$. Корректность определения морфизмов $(f_1,\star_{X_2},\widetilde{T_{D_2}})$, $(f_2,\star_{X_2},\widetilde{T_{D_2}})$ следует из равенств:
+    \end{cases}$, для любых $a \in A_2$, $\star_{X_2}: \{\star\} \to X_2$ --- морфизм из определения объекта $(X_2,\star_{X_2})$ категории $C_\star$, $T_{D_2}: D_2 \to \{\star\}$ --- единственный морфизм в $\{\star\}$ поскольку $\{\star\}$ --- терминальный объект категории $C$. Корректность определения морфизмов $(f_1,\star_{X_2},\widetilde{T_{D_2}})$, $(f_2,\star_{X_2},\widetilde{T_{D_2}})$ следует из равенств:
     $$
         T_{D_2}(r_2(a,\star_{X_2}(\star))) = \star = w(f_1(a),\star) = w(f_2(a),\star)
     $$
@@ -245,6 +245,21 @@ $$\xymatrix@R=2em@C=2em{
     $$
     Следовательно, $(f^+,f^-,\widetilde{\overline{f^0}}) = (f'^+,f'^-,\widetilde{f'^0})$ в категории $Chu_\sim(C_\star)$.
 \end{proof}
+
+\begin{theorem}
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда коуравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: Q \wedge E \to W$, где $Q = A_2/\nu(f_1^+,f_2^+)$, $w = D_2/\nu(f_1^0,f_2^0)$, $E = \{x \in X_2 \mid f_1^-(x) = f_2^-(x)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f+,f^-,\widetilde{f^0}): r_2 \to t$, где $f^+$, $f^0$ --- канонические эпиморфизмы, $f^-$ --- естественное вложение. 
+\end{theorem}
+\begin{proof}
+    Пусть условия теоремы выполнены. Введем обозначения $\overline{a} = a/\nu(f_1^+,f_2^+)$, $\overline{d} = d/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $d \in D_2$. Корректность определения $t$ следует из равенств $f_1^0(r_1(a,x)) = r_2(f_1^+(a),x)$, $f_2^0(r_1(a,x)) = r_2(f_2^+(a),x)$ для любых $a \in A_1$, $x \in E$.
+
+    Покажем, что $(f^+,f^-,\widetilde{f^0}): r_2 \to t$ является преобразованием Чу категории $Chu_\sim(C_\star)$. Так как имеют место равенства $t(f^+(a),x) = t(\overline{a},x) = \overline{r_2(a,x)}$ и $f^0(r_2(a,f^-(x))) = f^0(r_2(a,x)) = \overline{r_2(a,x)}$ для любых $a \in A_2$, $x \in E$, то $t(f^+(a),x) = f^0(r_2(a,f^-(x)))$ для любых $a \in A_2$, $x \in X$. Таким образом, $(f^+,f^-,\widetilde{f^0})$ является преобразованием Чу категории $Chu_\sim(C_\star)$.
+
+    Пусть $t': Q' \wedge E' \to W'$ --- объект категории $Chu_\sim(C_\star)$ и $(f'^+,f'^-,\widetilde{f'^0}): r_2 \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$ такое, что $(f'^+,f'^-,\widetilde{f'^0}) \circ (f_1^+,f_1^-,\widetilde{f_1^0}) = (f'^+,f'^-,\widetilde{f'^0}) \circ (f_2^+,f_2^-,\widetilde{f_2^0})$. Тогда $f'^+ \circ f_1^+ = f'^+ \circ f_2^+$, $f_1^- \circ f'^- = f_2^- \circ f'^-$ и для любого $d \in D_1$ если $d = r_1(a,(f_1^- \circ f'^-)(x))$, то $(f'^0 \circ f_1^0)(d) = (f'^0 \circ f_2^0)(d) = t((f'^+ \circ f_1^+)(a),x)$. Так как $Q,W$ являются коуравнителями, $E$ является уравнителем в категории $C_\star$, то существуют единственные морфизмы $u: Q \to Q'$, $w: W \to W'$, $E' \to E$ категории $C_\star$ такие, что $f'^+ = u \circ f^+$, $f'^0 = w \circ f^0$, $f'^- = f^- \circ v$. Покажем, что $(u,v,w): t \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Пусть $a \in A_2$, $x' \in E'$. Так как $u(\overline{a}) = (u \circ f^+)(a)$ и $f'^+ = u \circ f^+$, то $t'(u(\overline{a}),x') = t'((u \circ f^+)(a),x')$. Из того, что $(f'^+,f'^-,\widetilde{f'^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ следует, что $t'(f'^+(a),x') = f'^0(r_2(a,f'^-(x')))$. С другой стороны, из того, что $\overline{a} = f^+(a)$ следует, что $w(t(\overline{a},v(x'))) = w(t(f^+(a),v(x')))$. Так как $(f^+,f^-,\widehat{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $w(t(f^+(a),v(x'))) = (w \circ f^0)(r_2(a,(f^- \circ v)(x')))$. Поскольку $f'^0 = w \circ f^0$ и $f'^- = f^- \circ v$,, то $(w \circ f^0)(r_2(a,(f^- \circ v)(x'))) = f'^0(r_2(a,f'^-(x')))$. Таким образом, $t'(u(a),x') = w(t(\overline{a},v(x')))$. Следовательно, $(u,v,w)$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Ясно, что $(u,v,w)$ --- единственное такое преобразование Чу, что $(f'^+,f'^-.\widetilde{f'^0}) = (u,v,w) \circ (f^+,f^-.\widetilde{f^0})$ 
+\end{proof}
+
+\begin{theorem}
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда уравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: E \wedge Q \to W$, где $Q = X_1/\nu(f_1^-,f_2^-)$, $w = D_1/\nu(f_1^0,f_2^0)$, $E = \{a \in A_1 \mid f_1^+(a) = f_2^+(a)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f+,f^-,\widetilde{f^0}): t \to r_1$, где $f^+$, $f^0$ ---  --- естественные вложения, $f^-$ --- канонический эпиморфизм. 
+\end{theorem}
 
 \section*{Категория $Chu_{\widetilde{Set}}$}
 
@@ -413,6 +428,10 @@ $$\xymatrix@R=2em@C=2em{
     $$
     Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) = (f',g',h')$ в категории $Chu_{\widetilde{Set}}$.
 \end{proof}
+
+\begin{remark}
+    Пусть $\varphi_1, \varphi_2: U \to V$ --- морфизмы категории $C_\star$. Тогда отношение $\nu(\varphi_1,\varphi_2)$ на $V$ определяется следующим образом: $(v_1,v_2) \in \nu(\varphi_1,\varphi_2) \Leftrightarrow \exists u \in U: v_1 = \varphi_1(u) = \varphi_2(u) = v_2$.
+\end{remark}
 
 \section*{Категория $Chu(\GAct_{\star})$}
 
