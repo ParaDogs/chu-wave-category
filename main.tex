@@ -69,6 +69,21 @@ $$\xymatrix@R=2em@C=2em{
     \end{itemize}
 \end{itemize}
 
+Поскольку категория $C$ алгебраических систем сигнатуры $\Sigma$ является замкнутой моноидальной, то для любых $A,B \in Ob(C)$ существуют $A \multimap B \in Ob(C)$ и морфизм $ev_{A,B}: (A \multimap B) \times A \to B$ такие, что для любого морфизма $f: X \times A \to B$ существует единственный морфизм $h: X \to A \multimap B$ такой, что $f = ev_{A,B} \circ (h \times id_A)$. Покажем, что в этом случае моноидальная категория $C_\star$ с тензорным произведением $\wedge$ является замкнутой моноидальной. Пусть $A_\star,B_\star \in Ob(C_\star)$, тогда $A_\star = (A,w_{A_\star})$, $A_\star = (B,w_{B_\star})$, где $A,B \in Ob(C)$, $w_{A_\star}: \{\star\} \to A$, $w_{B_\star}: \{\star\} \to B$, $\{\star\}$ --- терминальный объект категории $C$. Положим $A_\star \multimap B_\star = (A \multimap B, w_{A_\star \multimap B_\star})$, где $w_{A_\star \multimap B_\star}: \{\star\} \to (A \multimap B)$ определим следующим образом: $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)$ для любых $a \in A$. Покажем, что $w_{A_\star \multimap B_\star}$ определен однозначно. Пусть $w': \{\star\} \to (A_\star \multimap B_\star)$ такой морфизм, что $ev_{A,B}(w'(\star),a) = w_{B_\star}(\star)$ для любого $a \in A$. В этом случае для морфизма $\widetilde{w}: \{\star\} \times A \to B$ такого, что $\widetilde{w}(\star,a) = w_{B_\star}(\star)$ для любого $a \in A$, существует единственный морфизм $k: \{\star\} \to (A \multimap B)$ такой, что $\widetilde{w} = ev_{A,B} \circ (k \times id_A)$, то есть $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = ev_{A,B}(w'(\star),a) = w_{B_\star}(\star) = \widetilde{w}(\star,a) = ev_{A,B}(k(\star),a)$ для любого $a \in A$. Следовательно, $w_{A_\star \multimap B_\star} = k = w'$. Определим $ev_{A_\star,B_\star}: (A_\star \multimap B_\star) \wedge A_\star \to B_\star$ следующим образом: $ev_{A_\star,B_\star}(u,a) = ev_{A,B}(u,a)$ для любых $u \in A_\star \multimap B_\star$, $a \in A_\star$. Корректность определения $ev_{A_\star,B_\star}$ следует из равенств
+$$
+    (ev_{A_\star,B_\star} \circ w_{(A_\star \multimap B_\star) \wedge A_\star})(\star) = ev_{A_\star,B_\star}(w_{(A_\star \multimap B_\star) \wedge A_\star}(\star)) = ev_{A_\star,B_\star}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)
+$$
+для любого $a \in A_\star$. Пусть $f: X_\star \wedge A_\star \to B_\star$ --- морфизм категории $C_\star$. По морфизму $f$ построим морфизм $\overline{f}: X \times A \to B$ следующим образом: $\overline{f}(x,a) = 
+\begin{cases}
+    f(x,a),&\text{если } x \ne w_{X_\star}(\star), a \ne w_{A_\star}(\star),\\
+    w_{B_\star}(\star),&\text{иначе}
+\end{cases}    
+$. Заметим, что $f(x,a) = \overline{f}(x,a)$ для любых $(x,a) \in X_\star \wedge A_\star$. В  этом случае из замкнутости категории $C$ следует, что существует единственный морфизм $\overline{h}: X \to (A \multimap B)$ такой, что $\overline{f} = ev_{A,B} \circ (\overline{h} \times id_A)$, то есть $\overline{f}(x,a) = ev_{A,B}(\overline{h}(x),a)$ для любых $x \in X$, $a \in A$. Следовательно,  $f(x,a) = \overline{f}(x,a) = ev_{A,B}(\overline{h}(x),a) = ev_{A_\star,B_\star}(h,a)$ для любых $x \in X_\star$, $a \in A_\star$, где $h: X_\star \to (A_\star \multimap B_\star)$ определим следующим образом: $h(x) = \overline{h}(x)$ для любых $x \in X_\star$. Таким образом, $f = ev_{A_\star,B_\star} \circ (h \times id_{A_\star})$. Корректность определения $h$, то есть $h(w_{X_\star}(\star)) = w_{A_\star \multimap B_\star}(\star)$ следует из равенств:
+$$
+    ev_{A,B}(h(w_{X_\star}(\star)),a) = f(w_{X_\star}(\star),a) = w_{B_\star}(\star)
+$$
+для любых $a \in A_\star$, поскольку $w_{A_\star \multimap B_\star}(\star)$ единственный морфизм такой, что $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)$.
+
 \section*{Категория $Chu_\sim(C_\star)$}
 
 \begin{theorem}\label{epimorphism-c}
@@ -246,20 +261,26 @@ $$\xymatrix@R=2em@C=2em{
     Следовательно, $(f^+,f^-,\widetilde{\overline{f^0}}) = (f'^+,f'^-,\widetilde{f'^0})$ в категории $Chu_\sim(C_\star)$.
 \end{proof}
 
+\begin{remark}
+    Пусть $\varphi_1, \varphi_2: U \to V$ --- морфизмы категории $C_\star$. Тогда отношение $\nu(\varphi_1,\varphi_2)$ на $U$ определяется следующим образом: $(u_1,u_2) \in \nu(\varphi_1,\varphi_2) \Leftrightarrow \varphi_1(u_1) = \varphi_2(u_2)$.
+\end{remark}
+
 \begin{theorem}
-    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда коуравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: Q \wedge E \to W$, где $Q = A_2/\nu(f_1^+,f_2^+)$, $w = D_2/\nu(f_1^0,f_2^0)$, $E = \{x \in X_2 \mid f_1^-(x) = f_2^-(x)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f+,f^-,\widetilde{f^0}): r_2 \to t$, где $f^+$, $f^0$ --- канонические эпиморфизмы, $f^-$ --- естественное вложение. 
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда коуравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: Q \wedge E \to W$, где $Q = A_2/\nu(f_1^+,f_2^+)$, $W = D_2/\nu(f_1^0,f_2^0)$, $E = \{x \in X_2 \mid f_1^-(x) = f_2^-(x)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f^+,f^-,\widetilde{f^0}): r_2 \to t$, где $f^+$, $f^0$ --- канонические эпиморфизмы, $f^-$ --- естественное вложение. 
 \end{theorem}
 \begin{proof}
     Пусть условия теоремы выполнены. Введем обозначения $\overline{a} = a/\nu(f_1^+,f_2^+)$, $\overline{d} = d/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $d \in D_2$. Корректность определения $t$ следует из равенств $f_1^0(r_1(a,x)) = r_2(f_1^+(a),x)$, $f_2^0(r_1(a,x)) = r_2(f_2^+(a),x)$ для любых $a \in A_1$, $x \in E$.
 
     Покажем, что $(f^+,f^-,\widetilde{f^0}): r_2 \to t$ является преобразованием Чу категории $Chu_\sim(C_\star)$. Так как имеют место равенства $t(f^+(a),x) = t(\overline{a},x) = \overline{r_2(a,x)}$ и $f^0(r_2(a,f^-(x))) = f^0(r_2(a,x)) = \overline{r_2(a,x)}$ для любых $a \in A_2$, $x \in E$, то $t(f^+(a),x) = f^0(r_2(a,f^-(x)))$ для любых $a \in A_2$, $x \in X$. Таким образом, $(f^+,f^-,\widetilde{f^0})$ является преобразованием Чу категории $Chu_\sim(C_\star)$.
 
-    Пусть $t': Q' \wedge E' \to W'$ --- объект категории $Chu_\sim(C_\star)$ и $(f'^+,f'^-,\widetilde{f'^0}): r_2 \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$ такое, что $(f'^+,f'^-,\widetilde{f'^0}) \circ (f_1^+,f_1^-,\widetilde{f_1^0}) = (f'^+,f'^-,\widetilde{f'^0}) \circ (f_2^+,f_2^-,\widetilde{f_2^0})$. Тогда $f'^+ \circ f_1^+ = f'^+ \circ f_2^+$, $f_1^- \circ f'^- = f_2^- \circ f'^-$ и для любого $d \in D_1$ если $d = r_1(a,(f_1^- \circ f'^-)(x))$, то $(f'^0 \circ f_1^0)(d) = (f'^0 \circ f_2^0)(d) = t((f'^+ \circ f_1^+)(a),x)$. Так как $Q,W$ являются коуравнителями, $E$ является уравнителем в категории $C_\star$, то существуют единственные морфизмы $u: Q \to Q'$, $w: W \to W'$, $E' \to E$ категории $C_\star$ такие, что $f'^+ = u \circ f^+$, $f'^0 = w \circ f^0$, $f'^- = f^- \circ v$. Покажем, что $(u,v,w): t \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Пусть $a \in A_2$, $x' \in E'$. Так как $u(\overline{a}) = (u \circ f^+)(a)$ и $f'^+ = u \circ f^+$, то $t'(u(\overline{a}),x') = t'((u \circ f^+)(a),x')$. Из того, что $(f'^+,f'^-,\widetilde{f'^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ следует, что $t'(f'^+(a),x') = f'^0(r_2(a,f'^-(x')))$. С другой стороны, из того, что $\overline{a} = f^+(a)$ следует, что $w(t(\overline{a},v(x'))) = w(t(f^+(a),v(x')))$. Так как $(f^+,f^-,\widehat{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $w(t(f^+(a),v(x'))) = (w \circ f^0)(r_2(a,(f^- \circ v)(x')))$. Поскольку $f'^0 = w \circ f^0$ и $f'^- = f^- \circ v$,, то $(w \circ f^0)(r_2(a,(f^- \circ v)(x'))) = f'^0(r_2(a,f'^-(x')))$. Таким образом, $t'(u(a),x') = w(t(\overline{a},v(x')))$. Следовательно, $(u,v,w)$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Ясно, что $(u,v,w)$ --- единственное такое преобразование Чу, что $(f'^+,f'^-.\widetilde{f'^0}) = (u,v,w) \circ (f^+,f^-.\widetilde{f^0})$ 
+    Пусть $t': Q' \wedge E' \to W'$ --- объект категории $Chu_\sim(C_\star)$ и $(f'^+,f'^-,\widetilde{f'^0}): r_2 \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$ такое, что $(f'^+,f'^-,\widetilde{f'^0}) \circ (f_1^+,f_1^-,\widetilde{f_1^0}) = (f'^+,f'^-,\widetilde{f'^0}) \circ (f_2^+,f_2^-,\widetilde{f_2^0})$. Тогда $f'^+ \circ f_1^+ = f'^+ \circ f_2^+$, $f_1^- \circ f'^- = f_2^- \circ f'^-$ и для любого $d \in D_1$ если $d = r_1(a,(f_1^- \circ f'^-)(x))$, то $(f'^0 \circ f_1^0)(d) = (f'^0 \circ f_2^0)(d) = t((f'^+ \circ f_1^+)(a),x)$. Так как $Q,W$ являются коуравнителями, $E$ является уравнителем в категории $C_\star$, то существуют единственные морфизмы $u: Q \to Q'$, $w: W \to W'$, $E' \to E$ категории $C_\star$ такие, что $f'^+ = u \circ f^+$, $f'^0 = w \circ f^0$, $f'^- = f^- \circ v$. Покажем, что $(u,v,\widetilde{w}): t \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Пусть $a \in A_2$, $x' \in E'$. Так как $u(\overline{a}) = (u \circ f^+)(a)$ и $f'^+ = u \circ f^+$, то $t'(u(\overline{a}),x') = t'((u \circ f^+)(a),x')$. Из того, что $(f'^+,f'^-,\widetilde{f'^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ следует, что $t'(f'^+(a),x') = f'^0(r_2(a,f'^-(x')))$. С другой стороны, из того, что $\overline{a} = f^+(a)$ следует, что $w(t(\overline{a},v(x'))) = w(t(f^+(a),v(x')))$. Так как $(f^+,f^-,\widehat{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $w(t(f^+(a),v(x'))) = (w \circ f^0)(r_2(a,(f^- \circ v)(x')))$. Поскольку $f'^0 = w \circ f^0$ и $f'^- = f^- \circ v$,, то $(w \circ f^0)(r_2(a,(f^- \circ v)(x'))) = f'^0(r_2(a,f'^-(x')))$. Таким образом, $t'(u(a),x') = w(t(\overline{a},v(x')))$. Следовательно, $(u,v,w)$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Ясно, что $(u,v,w)$ --- единственное такое преобразование Чу, что $(f'^+,f'^-.\widetilde{f'^0}) = (u,v,w) \circ (f^+,f^-.\widetilde{f^0})$ 
 \end{proof}
 
 \begin{theorem}
     Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда уравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: E \wedge Q \to W$, где $Q = X_1/\nu(f_1^-,f_2^-)$, $w = D_1/\nu(f_1^0,f_2^0)$, $E = \{a \in A_1 \mid f_1^+(a) = f_2^+(a)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f+,f^-,\widetilde{f^0}): t \to r_1$, где $f^+$, $f^0$ ---  --- естественные вложения, $f^-$ --- канонический эпиморфизм. 
 \end{theorem}
+
+\end{document}
 
 \section*{Категория $Chu_{\widetilde{Set}}$}
 
@@ -429,9 +450,7 @@ $$\xymatrix@R=2em@C=2em{
     Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) = (f',g',h')$ в категории $Chu_{\widetilde{Set}}$.
 \end{proof}
 
-\begin{remark}
-    Пусть $\varphi_1, \varphi_2: U \to V$ --- морфизмы категории $C_\star$. Тогда отношение $\nu(\varphi_1,\varphi_2)$ на $V$ определяется следующим образом: $(v_1,v_2) \in \nu(\varphi_1,\varphi_2) \Leftrightarrow \exists u \in U: v_1 = \varphi_1(u) = \varphi_2(u) = v_2$.
-\end{remark}
+
 
 \section*{Категория $Chu(\GAct_{\star})$}
 
@@ -598,52 +617,4 @@ $$\xymatrix@R=2em@C=2em{
         \tilde{p}_j(h'(d)) = \tilde{p}_j(h'(t(b,g'(x_i)))) = \tilde{p}_j(r(f'(b),x_i)) = \star = \tilde{p}_j(r(\tilde{f}(b),x_i)) = \tilde{p}_j(\tilde{h}(t(b,\tilde{g}(x_i)))).
     $$
     Следовательно, $(\tilde{f},\tilde{g},\tilde{h}) = (f',g',h')$ в категории $Chu_{\widetilde{Set}}$.
-\end{proof}
-
-\end{document}
-
-\begin{theorem}[критерий существования уравнителя]
-    Пусть $r: A \times X \to D_1$, $s: B \times Y \to D_2$ --- пространства Чу категории $Chu_{\widetilde{Set}}$, $(f_1,g_1,h_1), (f_2,g_2,h_2): r \to s$ --- преобразования Чу категории $Chu_{\widetilde{Set}}$. Уравнитель преобразований Чу $(f_1,g_1,h_1)$ и $(f_2,g_2,h_2)$ существует тогда и только тогда существует элемент $a \in A$ такой, что
-    \begin{enumerate}
-        \item $f_1(a) = f_2(a)$;
-        \item $r(a,g_1(y)) = r(a,g_2(y))$ для любого $y \in Y$;
-        % \item $h_1(r(a,x)) = h_2(r(a,x))$ для любого $x \in X$.
-    \end{enumerate}
-\end{theorem}
-\begin{proof}
-    \textbf{Необходимость.} Пусть $t: C \times Z \to D_0$ --- пространство Чу категории $Chu_{\widetilde{Set}}$, $(f,g,h): t \to r$ --- уравнитель преобразований Чу $(f_1,g_1,h_1)$ и $(f_2,g_2,h_2)$, то есть $(f_1,g_1,h_1) \circ (f,g,h) = (f_2,g_2,h_2) \circ (f,g,h)$. В этом случае $f_1 \circ f = f_2 \circ f$, $g \circ g_1 = g \circ g_2$ и для любого $d_0 \in D_0$ если $d_0 = t(c, (g \circ g_1)(y))$, то $(h_1 \circ h)(d_0) = (h_2 \circ h)(d_0) = s((f_1 \circ f)(c),y)$. Определим $a \in A$ как произвольный элемент образа $f(C)$, то есть $a = f(c)$ для некоторого $c \in C$. Проверим выполнение условий 1),2) теоремы. Выполнение условия 1) следует из равенств
-    $$
-        f_1(a) = f_1(f(c)) = f_2(f(c)) = f_2(a).
-    $$
-    Выполнение условия 2) следует из равенств
-    \begin{multline*}
-        r(a,g_1(y)) = r(f(c),g_1(y)) = h(t(c,g(g_1(y)))) =\\= 
-        h(t(c,g(g_1(y)))) = r(f(c),g_2(y)) = r(a,g_2(y))
-    \end{multline*}
-    для любых $y \in Y$. 
-    % Выполнение условия 3) следует из равенств
-    % \begin{multline*}
-    %     h_1(r(a,x)) = h_1(r(f(c),x)) = h_1(h(t(c,g(x)))) =\\=
-    %     h_2(h(t(c,g(x)))) = h_2(r(f(c),x)) = h_2(r(a,x)).
-    % \end{multline*}
-
-    \textbf{Достаточность.} Пусть существует элемент $a \in A$ такой, что выполнены условия 1),2) теоремы. Определим следующие множества:
-    $$
-        C_1 = \{c \in A \mid f_1(c) = f_2(c)\},
-        C_2 = \{c \in A \mid \forall y \in Y\ r(c,g_1(y)) = r(c,g_2(y))\}.
-    $$
-    Определим пространство Чу $t: C \times X/\nu(g_1,g_2) \to D_1$, где $C = C_1 \cap C_2$, $t(c,\overline{x}) = r(c,x)$ для любых $c \in C, \overline{x} \in X/\nu(g_1,g_2)$. Так как $a \in C$, то $C \ne \varnothing$. Поскольку для любого $c \in C \subseteq C_2$, то $t(c,\overline{g_1(y)}) = r(c,g_1(y)) = r(c,g_2(y)) = t(c,\overline{g_2(y)})$, то есть значение $t(c,\overline{x})$ не зависит от выбора представителя $\overline{x} \in X/\nu(g_1,g_2)$. Определим уравнитель преобразований Чу $(f_1,g_1,h_1)$ и $(f_2,g_2,h_2)$ как морфизм $(f,g,h): t \to r$ следующим образом: $f(c) = c$, $g(x) = \overline{x}$, $h(d) = d$ для любых $c \in C$, $x \in X$, $d \in D$. Корректность определения $(f,g,h)$ следует из равенств $h(t(c,g(x))) = h(r(c,x)) = r(c,x) = r(f(c),x)$ для любых $c \in C$, $x \in X$. Из того, что для любого $c \in C \subseteq C_1$ следует, что $f_1 \circ f = f_2 \circ f$. Так как $g \circ g_1 = g \circ g_2$ и для любого $d \in D$ если $d = t(c,(g \circ g_1)(y))$, то $(h_1 \circ h)(d) = (h_2 \circ h)(d) = s((f_1 \circ f)(c),y)$, следовательно $h_1(d) = h_2(d)$. Тогда $(f_1, g_1, h_1) \circ (f, g, h) = (f2, g_2, h_2) \circ (f, g, h)$, то есть $(f,g,h)$ -- уравнитель $(f_1,g_1,h_1)$ и $(f_2,g_2,h_2)$.
-\end{proof}
-
-\begin{theorem}[существование коуравнителя]
-    Пусть $r: A \times X \to D_1$ и $s: B \times Y \to D_2$ --- объекты категории $Chu_{\widetilde{Set}}$ и $(f_1,g_1,h_1), (f_2,g_2,h_2): r \to s$ --- преобразования категории $Chu_{\widetilde{Set}}$. Тогда коуравнитель морфизмов $(f_1,g_1,h_1), (f_2,g_2,h_2)$ --- это пространство Чу $t: Q \times E \to W$, где $Q = B/\nu(f_1,f_2)$, $W = D/\nu(h_1,h_2)$, $E = \{y \in Y \mid g_1(y) = g_2(y)\}$, $t(b/\nu(f_1,f_2),y) = s(b,y)/\nu(h_1,h_2)$ для любых $b \in B$, $y \in E$, с морфизмом $(f,g,h): s \to t$, где $f,h$ --- канонические эпиморфизмы, $g$ --- естественное вложение.
-\end{theorem}
-\begin{proof}
-    Пусть условия теоремы выполнены.
-
-    Введем обозначения: $\overline{b} = b/\nu(f_1,f_2)$, $\overline{d} = d/\nu(h_1,h_2)$ для любых $b \in B$, $d \in D$. Корректность определения $t$ следует из равенств $h_1(r(a,g_1(y))) = s(f_1(a),y)$, $h_2(r(a,g_2(y))) = s(f_2(a),y)$ для любых $a \in A$, $y \in E$.
-
-    Покажем, что $(f,g,h): s \to t$ такое, что $f(b) = \overline{b}$, $g = 1_E$ и $h(d_2) = \overline{d_2}$ для любых $b \in B$, $d_2 \in D_2$, является преобразованием Чу категории $Chu_{\widetilde{Set}}$.
-
-    Пусть $t': Q' \times E' \to W'$ объект категории $Chu_{\widetilde{Set}}$ и $(f',g',h'): s \to t$ преобразование Чу категории $Chu_{\widetilde{Set}}$ такое, что $(f',g',h') \circ (f_1,g_1,h_1) = (f',g',h') \circ (f_2,g_2,h_2)$. Тогда $f' \circ f_1 = f' \circ f_2$, $g_1 \circ g' = g_2 \circ g'$ и для любого ... ПРО h' НАПИСАТЬ. Так как $Q,W$ являются коуравнителями и $E$ является уравнителем в категории $Set_{\star}$, то существуют единственные морфизмы $u: Q \to Q'$, $w: W \to W'$ категории $Set_{\star}$ такие, что $f' = u \circ f$, ХЗ ТАК ЭТО ИЛИ НЕТ НО $h' = w \circ h$ и существует единственный морфизм $v: E' \to E$ категории $Set_{\star}$ такой, что $g' = g \circ v$. Покажем, что $(u,v,w): t \to t'$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$. Пусть $b \in B$, $e' \in E'$. Так как $u(\overline{b}) = (u \circ f)(b)$ и $f' = u \circ f$, то $t'(u(\overline{b}),e') = t'((u \circ f)(b),e') = t'(f'(b),e')$. Из того, что $(f',g',h')$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$ следует, что $t'(f'(b),e') = h'(s(b,g'(e')))$. С другой стороны, из того, что $\overline{b} = f(b)$ следует, что $w(t(\overline{b},v(e'))) = w(t(f(b),v(e')))$. Так как $(f,g,h)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$, то $w(t(f(b),v(e'))) = (w \circ h)(s(b,(g \circ v)(e')))$. Поскольку $h' = w \circ h$ и $g' = g \circ v$, то $(w \circ h)(s(b,(g \circ v)(e'))) = h'(s(b,g'(e')))$. Таким образом, $t'(u(\overline{b}),e') = w(t(\overline{b},v(e')))$. Следовательно, $(u,v,w)$ --- преобразование Чу категории $Chu_{\widetilde{Set}}$. Ясно, что преобразование $(u,v,w)$ --- единственное преобразование, удовлетворяющее равенству $(f',g',h') = (u,v,w) \circ (f,g,h)$.
 \end{proof}
