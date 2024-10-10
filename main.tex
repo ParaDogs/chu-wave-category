@@ -32,7 +32,7 @@
     коммутативна в $C$, где композиция наследуется из $C$.
 \end{itemize}
 
-Пусть $(C,\otimes,\star)$ --- моноидальная, замкнутая, биполная категория с терминальным объектом $\star$, и пусть $C_\star$ --- пунктированная категория категории $C$. В категории $C_\star$ объекты $(k,u)$ будем обозначать через $k_\star$ или просто $k$. Для объектов $k$ и $l$ категории $C_\star$ определим их скрещенное произведение $k \wedge l$ как объект категории $C_\star$ задаваемый следующим расслоенным произведением в категории $C$:
+Пусть $(C,\otimes,\star)$ --- моноидальная, замкнутая, биполная категория с терминальным объектом $\star$, и пусть $C_\star$ --- пунктированная категория категории $C$. В категории $C_\star$ объекты $(k,u)$ будем обозначать через $k_\star$ или просто $k$. Для объектов $k$ и $l$ категории $C_\star$ определим их скрещенное произведение $k \wedge l$ как объект категории $C_\star$ задаваемый следующим корасслоенным произведением в категории $C$:
 $$\xymatrix@R=2em@C=2em{
     (k \otimes \star) \sqcup (\star \otimes l) \ar[r] \ar[d] & k \otimes l \ar[d]\\
     \star \ar[r] & k \wedge l.
@@ -83,6 +83,21 @@ $$
     ev_{A,B}(h(w_{X_\star}(\star)),a) = f(w_{X_\star}(\star),a) = w_{B_\star}(\star)
 $$
 для любых $a \in A_\star$, поскольку $w_{A_\star \multimap B_\star}(\star)$ единственный морфизм такой, что $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)$.
+
+Определим функторы $F: Chu_\wedge(C_\star) \to Chu_\sim(C_\star)$ и $G: Chu_\sim(C_\star) \to Chu_\wedge(C_\star)$ следующим образом:
+$$
+    F(r_1) = r_1, F(f^+,f^-,f^0) = (f^+,f^-,\widetilde{f^0}),
+$$
+$$
+    G(r_1') = r_1', 
+    G(f'^+,f'^-,\widetilde{f'^0}) = (f'^+,f'^-,\overline{\widetilde{f'^0}}),
+$$
+где $r_1: A_1 \wedge X_1 \to D_1 \in Ob(Chu_\wedge(C_\star))$, $r_1': A_1' \wedge X_1' \to D_1' \in Ob(Chu_\sim(C_\star))$, $(f^+,f^-,f^0) \in Hom_{Chu_\wedge(C_\star)}(r_1,r_2)$, $(f'^+,f'^-,\widetilde{f'^0}) \in Hom_{Chu_\sim(C_\star)}(r_1',r_2')$, $$\overline{\widetilde{f'^0}}(d) = 
+\begin{cases}
+    r_2(f^+(a),x),&\text{если } \exists a \in A_1, x \in X_2: d = r_1(a,f^-(x))\\
+    w_{D_2}(\star),&\text{иначе.}
+\end{cases}$$
+Покажем, что $G$ --- правый сопряженный функтор к функтору $F$.
 
 \section*{Категория $Chu_\sim(C_\star)$}
 
