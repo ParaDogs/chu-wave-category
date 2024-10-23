@@ -19,7 +19,9 @@
 
 \begin{document}
 
-\section*{Определения}
+\tableofcontents
+
+\section{Пунктированная категория}
 
 Зафиксируем категорию $C$ и объект $\star \in Ob(C)$. Определим пунктированную категорию $C_\star$ категории $C$ следующим образом:
 \begin{itemize}
@@ -32,15 +34,36 @@
     коммутативна в $C$, где композиция наследуется из $C$.
 \end{itemize}
 
-Пусть $(C,\otimes,\star)$ --- моноидальная, замкнутая, биполная категория с терминальным объектом $\star$, и пусть $C_\star$ --- пунктированная категория категории $C$. В категории $C_\star$ объекты $(k,u)$ будем обозначать через $k_\star$ или просто $k$. Для объектов $k$ и $l$ категории $C_\star$ определим их скрещенное произведение $k \wedge l$ как объект категории $C_\star$ задаваемый следующим корасслоенным произведением в категории $C$:
+\subsection{Декартовы и скрещенные (ко)произведения в $C_\star$}
+
+Пусть $(C,\otimes,\star)$ --- моноидальная, замкнутая, биполная категория с терминальным объектом $\star$, и пусть $C_\star$ --- пунктированная категория категории $C$. В категории $C_\star$ объекты $(k,u)$ будем обозначать через $k_\star$ или просто $k$. 
+
+Для объектов $k$ и $l$ категории $C_\star$ определим их скрещенную сумму (wedge sum) $k \vee l$ как объект категории $C_\star$, задаваемый следующим корасслоенным произведением в категории $C$:
+$$\xymatrix@R=2em@C=2em{
+    \star \sqcup \star \ar[r] \ar[d] & k \sqcup l \ar[d]\\
+    \star \ar[r] & k \vee l,
+}$$
+что равносильно определению через следующее корасслоенное произведение в категории $C_\star$
+$$\xymatrix@R=2em@C=2em{
+    \star \ar[r] \ar[d] & k \ar[d]\\
+    l \ar[r] & k \vee l.
+}$$
+Таким образом, $\vee$ --- копроизведение в категории $C_\star$.
+
+Для объектов $k$ и $l$ категории $C_\star$ определим их скрещенное произведение (smash product) $k \wedge l$ как объект категории $C_\star$ задаваемый следующим корасслоенным произведением (pushout) в категории $C$:
 $$\xymatrix@R=2em@C=2em{
     (k \otimes \star) \sqcup (\star \otimes l) \ar[r] \ar[d] & k \otimes l \ar[d]\\
-    \star \ar[r] & k \wedge l.
+    \star \ar[r] & k \wedge l,
+}$$
+что равносильно определению через следующий коуравнитель в категории $C_\star$
+$$\xymatrix@R=2em@C=2em{
+    k \vee l \ar@<0.5ex>[r]^-{i_k} \ar@<-0.5ex>[r]_-{i_l} & k \otimes l \ar[r] & k \wedge l.
 }$$
 
-Всюду ниже $(C, \times, \star)$ будет означать моноидальную, замкнутую, биполную категорию с терминальным объектом $\star$, объектами $C$ являются алгебраические системы, и для любой подсистемы $B$ произвольной алгебраической системы $A \in Ob(C)$ существует подсистема $C$ системы $A$ такая, что $A = B \sqcup C$. Скрещенное произведение $A \wedge B$ объектов $A, B \in Ob(C_\star)$ изоморфно объекту $((A \times B)/\Theta,w)$, где $\Theta = \{(a,\star) \mid a \in A\} \cup \{(\star,b) \mid b \in B\} \cup \{(c,c) \mid c \in A \cup B\}$ и $w(\star)/\Theta = \{(a,\star) \mid a \in A\} \cup \{(\star, b) \mid b \in B\}$. В пунктированной категории $C_\star$ элементы $(a,b)/w$ скрещенного произведения $A \wedge B$ будем обозначать через $(a,b)$ и $\star$ будем рассматривать как элемент $A$.
+Произведением объектов $(k_i,w_{k_i})$, $i \in I$, в категории $C_\star$ является объект $(\prod_{i \in I} k_i,w_{\prod_{i \in I} k_i})$ вместе с морфизмами $p_i: \prod_{i \in I} k_i \to k_i$, где $\prod_{i \in I} k_i$ --- произведение $\times$ в категории $C$, $p_j(w_{\prod_{i \in I} k_i}(\star)) = w_{k_j}(\star)$ для любого $j \in I$.
 
-Например:
+
+\subsection{Примеры пунктированных категорий}
 \begin{itemize}
     \item Пунктированная категория $Set_\star$ категории множеств $Set$. Объектом $\star$ в этой категории является одноэлементное множество, тензоным произведением является декартово произведение, копроизведением является дизъюнктное объединение.
     \item Пунктированная категория $(\GAct)_*$ категории $\GAct$ полигонов над группой $G$. Объектом $\star$ в этой категории является одноэлементный полигон, тензорным произведением является декартово произведение, копроизведением является дизъюнктное объединение. Поскольку любой связный полигон над группой $G$ является циклическим полигоном без чистого подполигона и любой полигон является копроизведением циклических подполигонов, тогда для любого подполигона $B$ произвольного полигона $A$ существует подполигон $C$ полигона $A$ такой, что $A = B \sqcup C$.
@@ -49,27 +72,21 @@ $$\xymatrix@R=2em@C=2em{
     u \in Hom_{\FGAct}(A,B) \Leftrightarrow u \in Hom_{\GAct}(G \times A, B), u(st,a) = u(s,a)
     $$
     для любых $s,t \in G$, $a \in A$. В работе \ref{2021} доказано, что категория $\FGAct$ естественно изоморфна категории $\GAct$, объект $\star$, тензорное произведение, копроизведение полигонов в этой категории определяются также как в категории $\GAct$. Таким образом, для любого подполигона $B$ произвольного полигона $A$ существует подполигон $C$ полигона $A$ такой, что $A = B \sqcup C$.
-
-    Пространство Чу над категорией $C$ обозначается как четверка $(A,X,D,r)$, где $A,X,D \in Ob(C)$, $r \in Hom_C(A \times X, D)$. Если это не вызывает путаницы, то для пространства Чу $(A,X,D,r)$ будем использовать обозначение $r \in Hom_C(A \wedge X,D)$ или, поскольку категория $C$ фиксирована, $r: A \wedge X \to D$. Определим категорию $Chu_\sim(C_\star)$ следующим образом:
-    \begin{itemize}
-        \item $Ob(Chu_\sim(C_\star))$ --- это множество всех пространств Чу над категорией $C_\star$;
-        \item если $r: A \wedge X \to D$, $r: A' \wedge X' \to D'$, то морфизмом или преобразованием Чу $(f,g,\widetilde{h}): r \to r'$ из $r$ в $r'$ является тройка $(f,g,\widetilde{h})$, где $f: A \to A'$, $g: X' \to X$, $h: D \to D'$ --- морфизмы категории $C_\star$, отношение $\sim$ --- это отношение эквивалентности на множестве
-        $$
-            \{h' \mid h': D \to D',\ \forall a \in A\ \forall x' \in X'\ h'(r(a,g(x'))) = r'(f(a),x')\}
-        $$
-        такое, что
-        $$
-            h' \sim h'' \Leftrightarrow \forall a \in A\ \forall x' \in X'\ h'(r(a,g(x'))) = h''(r(a,g(x')))
-        $$
-        и $\widetilde{h} = h/\sim$;
-        \item если $(f,g,\widetilde{h}): r \to r'$ и $(f',g',\widetilde{h'}): r' \to r''$, то композиция преобразований Чу определяется следующим образом:
-        $$
-            (f',g',\widetilde{h'}) \circ (f,g,\widetilde{h}) = (f' \circ f, g \circ g', \widetilde{(h' \circ h)}): r \to r''.
-        $$
-    \end{itemize}
 \end{itemize}
 
-Поскольку категория $C$ алгебраических систем сигнатуры $\Sigma$ является замкнутой моноидальной, то для любых $A,B \in Ob(C)$ существуют $A \multimap B \in Ob(C)$ и морфизм $ev_{A,B}: (A \multimap B) \times A \to B$ такие, что для любого морфизма $f: X \times A \to B$ существует единственный морфизм $h: X \to A \multimap B$ такой, что $f = ev_{A,B} \circ (h \times id_A)$. Покажем, что в этом случае моноидальная категория $C_\star$ с тензорным произведением $\wedge$ является замкнутой моноидальной. Пусть $A_\star,B_\star \in Ob(C_\star)$, тогда $A_\star = (A,w_{A_\star})$, $A_\star = (B,w_{B_\star})$, где $A,B \in Ob(C)$, $w_{A_\star}: \{\star\} \to A$, $w_{B_\star}: \{\star\} \to B$, $\{\star\}$ --- терминальный объект категории $C$. Положим $A_\star \multimap B_\star = (A \multimap B, w_{A_\star \multimap B_\star})$, где $w_{A_\star \multimap B_\star}: \{\star\} \to (A \multimap B)$ определим следующим образом: $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)$ для любых $a \in A$. Покажем, что $w_{A_\star \multimap B_\star}$ определен однозначно. Пусть $w': \{\star\} \to (A_\star \multimap B_\star)$ такой морфизм, что $ev_{A,B}(w'(\star),a) = w_{B_\star}(\star)$ для любого $a \in A$. В этом случае для морфизма $\widetilde{w}: \{\star\} \times A \to B$ такого, что $\widetilde{w}(\star,a) = w_{B_\star}(\star)$ для любого $a \in A$, существует единственный морфизм $k: \{\star\} \to (A \multimap B)$ такой, что $\widetilde{w} = ev_{A,B} \circ (k \times id_A)$, то есть $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = ev_{A,B}(w'(\star),a) = w_{B_\star}(\star) = \widetilde{w}(\star,a) = ev_{A,B}(k(\star),a)$ для любого $a \in A$. Следовательно, $w_{A_\star \multimap B_\star} = k = w'$. Определим $ev_{A_\star,B_\star}: (A_\star \multimap B_\star) \wedge A_\star \to B_\star$ следующим образом: $ev_{A_\star,B_\star}(u,a) = ev_{A,B}(u,a)$ для любых $u \in A_\star \multimap B_\star$, $a \in A_\star$. Корректность определения $ev_{A_\star,B_\star}$ следует из равенств
+\section{Категория $C_\star$ пунктированных алгебраических систем}
+
+Пусть $C$ --- категория алгебраических систем сигнатуры $\Sigma$ таких, что для любой подсистемы $B$ произвольной алгебраической системы $A \in Ob(C)$ существует подсистема $C$ системы $A$ такая, что $A = B \sqcup C$. Всюду ниже $(C, \times, T)$, где $\times$ --- прямое произведение алгебраических систем, $T = \langle \{\star\}, \Sigma \rangle$ --- одноэлементная алгебраическая система такая, что для любой $n$-местной операции $g \in \Sigma$ верно равенство $g(\star,\ldots,\star) = \star$, будет означать моноидальную, замкнутую, биполную категорию с терминальным объектом $T$. 
+
+\subsection{Скрещенные (ко)произведения}
+
+Скрещенное произведение $A \wedge B$ объектов $A$ и $B$ категории $C_\star$ изоморфно объекту $((A \times B)/\Theta,w)$, где $\Theta = \{(a,w_B(\star)) \mid a \in A\} \cup \{(w_A(\star),b) \mid b \in B\} \cup \{(c,c) \mid c \in A \cup B\}$ и $w(\star)/\Theta = \{(a,w_B(\star)) \mid a \in A\} \cup \{(w_A(\star),b) \mid b \in B\}$. В пунктированной категории $C_\star$ элементы $(a,b)/\Theta$ скрещенного произведения $A \wedge B$ будем обозначать через $(a,b)$ и $\star$ будем рассматривать как элемент $A \wedge B$. Для любой $n$-местной операции $g \in \Sigma$ полагаем $g((a_1,b_1),\ldots,(a_n,b_n)) = (g(a_1,\ldots,a_n),g(b_1,\ldots,b_n))$ для любых $a_i \in A$, $b_j \in B$. 
+
+Скрещенная сумма $A \vee B$ объектов $A$ и $B$ категории $C_\star$ изоморфна объекту $((A \sqcup B)/\Omega,w)$, где $\Omega = \{(w_A(\star),w_B(\star))\}$ и $w(\star)/\Omega = \{w_A(\star),w_B(\star)\}$. В пунктированной категории $C_\star$ элементы $c/\Omega$ скрещенной суммы $A \vee B$ будем обозначать через $c$ и $\star$ будем рассматривать как элемент $A \vee B$. Для любой $n$-местной операции $g \in \Sigma$ полагаем $g(c_1,\ldots,c_n) \in A$, если $c_i \in A$ для любого $i$, $g(c_1,\ldots,c_n) \in B$, если $c_i \in B$ для любого $i$, иначе $g(c_1,\ldots,c_n) = \star$.
+
+\subsection{Моноидальная замкнутость категории $C_\star$}
+
+Поскольку категория $C$ алгебраических систем сигнатуры $\Sigma$ является моноидально замкнутой, то для любых $A,B \in Ob(C)$ существуют $A \multimap B \in Ob(C)$ и морфизм $ev_{A,B}: (A \multimap B) \times A \to B$ такие, что для любого морфизма $f: X \times A \to B$ существует единственный морфизм $h: X \to A \multimap B$ такой, что $f = ev_{A,B} \circ (h \times id_A)$. Покажем, что в этом случае моноидальная категория $C_\star$ с тензорным произведением $\wedge$ является моноидально замкнутой. Пусть $A_\star,B_\star \in Ob(C_\star)$, тогда $A_\star = (A,w_{A_\star})$, $A_\star = (B,w_{B_\star})$, где $A,B \in Ob(C)$, $w_{A_\star}: \{\star\} \to A$, $w_{B_\star}: \{\star\} \to B$, $\{\star\}$ --- терминальный объект категории $C$. Положим $A_\star \multimap B_\star = (A \multimap B, w_{A_\star \multimap B_\star})$, где $w_{A_\star \multimap B_\star}: \{\star\} \to (A \multimap B)$ определим следующим образом: $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)$ для любых $a \in A$. Покажем, что $w_{A_\star \multimap B_\star}$ определен однозначно. Пусть $w': \{\star\} \to (A_\star \multimap B_\star)$ такой морфизм, что $ev_{A,B}(w'(\star),a) = w_{B_\star}(\star)$ для любого $a \in A$. В этом случае для морфизма $\widetilde{w}: \{\star\} \times A \to B$ такого, что $\widetilde{w}(\star,a) = w_{B_\star}(\star)$ для любого $a \in A$, существует единственный морфизм $k: \{\star\} \to (A \multimap B)$ такой, что $\widetilde{w} = ev_{A,B} \circ (k \times id_A)$, то есть $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = ev_{A,B}(w'(\star),a) = w_{B_\star}(\star) = \widetilde{w}(\star,a) = ev_{A,B}(k(\star),a)$ для любого $a \in A$. Следовательно, $w_{A_\star \multimap B_\star} = k = w'$. Определим $ev_{A_\star,B_\star}: (A_\star \multimap B_\star) \wedge A_\star \to B_\star$ следующим образом: $ev_{A_\star,B_\star}(u,a) = ev_{A,B}(u,a)$ для любых $u \in A_\star \multimap B_\star$, $a \in A_\star$. Корректность определения $ev_{A_\star,B_\star}$ следует из равенств
 $$
     (ev_{A_\star,B_\star} \circ w_{(A_\star \multimap B_\star) \wedge A_\star})(\star) = ev_{A_\star,B_\star}(w_{(A_\star \multimap B_\star) \wedge A_\star}(\star)) = ev_{A_\star,B_\star}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)
 $$
@@ -84,23 +101,38 @@ $$
 $$
 для любых $a \in A_\star$, поскольку $w_{A_\star \multimap B_\star}(\star)$ единственный морфизм такой, что $ev_{A,B}(w_{A_\star \multimap B_\star}(\star),a) = w_{B_\star}(\star)$.
 
-Определим функторы $F: Chu_\wedge(C_\star) \to Chu_\sim(C_\star)$ и $G: Chu_\sim(C_\star) \to Chu_\wedge(C_\star)$ следующим образом:
-$$
-    F(r_1) = r_1, F(f^+,f^-,f^0) = (f^+,f^-,\widetilde{f^0}),
-$$
-$$
-    G(r_1') = r_1', 
-    G(f'^+,f'^-,\widetilde{f'^0}) = (f'^+,f'^-,\overline{\widetilde{f'^0}}),
-$$
-где $r_1: A_1 \wedge X_1 \to D_1 \in Ob(Chu_\wedge(C_\star))$, $r_1': A_1' \wedge X_1' \to D_1' \in Ob(Chu_\sim(C_\star))$, $(f^+,f^-,f^0) \in Hom_{Chu_\wedge(C_\star)}(r_1,r_2)$, $(f'^+,f'^-,\widetilde{f'^0}) \in Hom_{Chu_\sim(C_\star)}(r_1',r_2')$, $$\overline{\widetilde{f'^0}}(d) = 
-\begin{cases}
-    r_2(f^+(a),x),&\text{если } \exists a \in A_1, x \in X_2: d = r_1(a,f^-(x))\\
-    w_{D_2}(\star),&\text{иначе.}
-\end{cases}$$
+\section{Категория $Chu_\sim(C_\star)$ пространств Чу}
 
-\section*{Категория $Chu_\sim(C_\star)$}
+Пространство Чу над категорией $C$ обозначается как четверка $(A,X,D,r)$, где $A,X,D \in Ob(C)$, $r \in Hom_C(A \wedge X, D)$. Если это не вызывает путаницы, то для пространства Чу $(A,X,D,r)$ будем использовать обозначение $r \in Hom_C(A \wedge X,D)$ или, поскольку категория $C$ фиксирована, $r: A \wedge X \to D$. Определим категорию $Chu_\sim(C_\star)$ следующим образом:
+\begin{itemize}
+    \item $Ob(Chu_\sim(C_\star))$ --- множество всех пространств Чу над категорией $C_\star$;
+    \item если $r: A \wedge X \to D$, $r': A' \wedge X' \to D'$, то морфизмом или преобразованием Чу $(f,g,\widetilde{h}): r \to r'$ из $r$ в $r'$ является тройка $(f,g,\widetilde{h})$, где $f: A \to A'$, $g: X' \to X$, $h: D \to D'$ --- морфизмы категории $C_\star$, отношение $\sim$ --- это отношение эквивалентности на множестве
+    $$
+        \{h' \mid h': D \to D',\ \forall a \in A\ \forall x' \in X'\ h'(r(a,g(x'))) = r'(f(a),x')\}
+    $$
+    такое, что
+    $$
+        h' \sim h'' \Leftrightarrow \forall a \in A\ \forall x' \in X'\ h'(r(a,g(x'))) = h''(r(a,g(x')))
+    $$
+    и $\widetilde{h} = h/\sim$;
+    \item если $(f,g,\widetilde{h}): r \to r'$ и $(f',g',\widetilde{h'}): r' \to r''$, то композиция преобразований Чу определяется следующим образом:
+    $$
+        (f',g',\widetilde{h'}) \circ (f,g,\widetilde{h}) = (f' \circ f, g \circ g', \widetilde{h' \circ h}): r \to r''.
+    $$
+\end{itemize}
+
+\subsection{Корректность композиции}
+
+Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$, $r_3: A_3 \wedge X_3 \to D_3$ --- пространства Чу, $(f^+,f^-,\widetilde{f^0}): r_1 \to r_2,$ $(g^+,g^-,\widetilde{g^0}): r_2 \to r_3$ --- преобразования Чу. Покажем, что если $f_1,f_2 \in \widetilde{f^0}$, $g_1,g_2 \in \widetilde{g^0}$, то $g_1 \circ f_1 \in \widetilde{g^0 \circ f^0}$ и $g_2 \circ f_2 \in \widetilde{g^0 \circ f^0}$. Пусть $a \in A_1$, $x \in X_3$ тогда 
+\begin{multline*}
+    (g_1 \circ f_1)(r_1(a,(f^- \circ g^-)(x))) = r_3((g^+ \circ f^+)(a),x) = (g_2 \circ f_2)(r_1(a,(f^- \circ g^-)(x))). 
+\end{multline*} Таким образом, композиция определена корректно.
+
+\section{Категория $Chu_\sim(C_\star)$}
 
 В этой главе рассматривается категория $C$ со следующим требованием: любая $n$-местная операция $g^{(n)}$ удовлетворяет равенству $g^{(n)}(\varepsilon_1,\ldots,\varepsilon_n) = \star$, если $\varepsilon_i = \star$ для некоторого $i \in \{1,\ldots,n\}$.
+
+Всюду ниже для любого объекта $(A,w_A)$ категории $C_\star$ через $\star$ будем обозначать $w_A(\star) \in A$, если это не вызывает путаницы. 
 
 \begin{lemma}\label{third-component}
     Пусть $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Если $f_1^+ = f_2^+$, $f_1^- = f_2^-$, то $(f_1^+,f_1^-,\widetilde{f_1^0}) = (f_2^+,f_2^-,\widetilde{f_2^0})$.
@@ -227,30 +259,30 @@ $$
 \end{proof}
 
 \begin{theorem}\label{coproduct-c}
-    Пусть $r_i: A_i \wedge X_i \to D_i$ --- объекты категории $Chu_\sim(C_\star)$, $i \in I$. Объект $r: \coprod_{i \in I} A_i \wedge \prod_{i \in I} X_i \to \coprod_{i \in I} D_i$ категории $Chu_\sim(C_\star)$ вместе с семейством $\{(q^+_i,q^-_i,\widetilde{q^0_i}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_\sim(C_\star)$, где $r(a,x) = r_i(a,q^-_i(x)) = r_i(a, x_i)$, $q^+_i: A_i \to \coprod_{i \in I} A_i$, $q^0_i: D_i \to \coprod_{i \in I} D_i$ --- естественные вложения, $q^-_i: \prod_{i \in I} X_i \to X_i$ --- каноническая проекция для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_\sim(C_\star)$.
+    Пусть $r_i: A_i \wedge X_i \to D_i$ --- объекты категории $Chu_\sim(C_\star)$, $i \in I$. Объект $r: \bigvee_{i \in I} A_i \wedge \prod_{i \in I} X_i \to \bigvee_{i \in I} D_i$ категории $Chu_\sim(C_\star)$ вместе с семейством $\{(q^+_i,q^-_i,\widetilde{q^0_i}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_\sim(C_\star)$, где $r(a,x) = r_i(a,q^-_i(x)) = r_i(a, x_i)$, $q^+_i: A_i \to \bigvee_{i \in I} A_i$, $q^0_i: D_i \to \bigvee_{i \in I} D_i$ --- естественные вложения, $q^-_i: \prod_{i \in I} X_i \to X_i$ --- каноническая проекция для любых $i \in I$, $a \in A_i$, $x \in \prod_{i \in I} X_i$, является копроизведением объектов $r_i$, $i \in I$, категории $Chu_\sim(C_\star)$.
 \end{theorem}
 \begin{proof}
-    Пусть условия теоремы выполнены. Поскольку $q^0_i(r_i(a,q^-_i(x))) = r_i(a,x_i) = r(a,x) = r(q^+_i(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $i \in I$, то $(q^+_i, q^-_i, \widetilde{q^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$. Корректность определения $r$ следует из равенств:
+    Пусть условия теоремы выполнены. Поскольку $q^0_i(r_i(a,q^-_i(x))) = r_i(a,x_i) = r(a,x) = r(q^+_i(a),x)$ для любых $a \in A_i$, $x \in \prod_{i \in I} X_i$, $i \in I$, то $(q^+_i, q^-_i, \widetilde{q^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$. Пусть $a_{i1},\ldots,a_{i_n} \in \bigvee_{k \in I} A_k$, то есть $a_{ij} \in A_{ij}$. Если существует $k \in I$ такое, что $a_{ij} \in A_k$ для любого $j$, то
     \begin{multline*}
-        r(g(\varepsilon_1,\ldots,\varepsilon_n),g(\delta_1,\ldots,\delta_n)) = r_i(g(\varepsilon_1,\ldots,\varepsilon_n),q_i^-(g(\delta_1,\ldots,\delta_n))) =\\=
-        r_i(g(\varepsilon_1,\ldots,\varepsilon_n),g(q_i^-(\delta_1),\ldots,q_i^-(\delta_n))) = g(r_i(\varepsilon_1,q_i^-(\delta_1)),\ldots,r_i(\varepsilon_n,q_i^-(\delta_n))) =\\=
-        g(r(\varepsilon_1,\delta_1),\ldots,r(\varepsilon_n,\delta_n))
+        r(g((a_{i1},x_1),\ldots,(a_{in},x_n))) = r_k(g(a_{i1},\ldots,a_{in}),q_k^-(g(x_1,\ldots,x_n))) =\\= 
+        r_k(g(a_{i1},\ldots,a_{in}),g(q_k^-(x_1),\ldots,q_k^-(x_n))) = r_k(g((a_{i1},q_k^-(x_1)),\ldots,(a_{in},q_k^-(x_n)))) =\\= g(r_k(a_{i1},q_k^-(x_1)),\ldots,r_k(a_{in},q_k^-(x_n))) = g(r(a_{i1},x_1),\ldots,r(a_{in},x_n)),
     \end{multline*}
-    для любых $\varepsilon_1,\ldots,\varepsilon_n \in A_i$, $\delta_1,\ldots,\delta_n \in \prod_{i \in I} X_i$
+    иначе $r(g((a_{i1},x_1),\ldots,(a_{in},x_n))) = r(g(a_{i1},\ldots,a_{in}),g(x_1,\ldots,x_n)) = r(\star,g(x_1,\ldots,x_n)) = \star = g(r(a_{i1},x_1),\ldots,r(a_{in},x_n))$. Таким образом, $r$ --- гомоморфизм алгебраических систем.
 
-    Пусть $t: B \wedge Y \to D$ --- объект категории $Chu_\sim(C_\star)$, $(f^+_i,f^-_i,\widetilde{f^0_i}): r_i \to t$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$. Так как $\coprod_{i \in I} A_i$ и $\coprod_{i \in I} D_i$ --- копроизведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\prod_{i \in I} X_i$ --- произведение $A_i$, $i \in I$ в категории $C_\star$, то существуют единственные морфизмы $f^+: \coprod_{i \in I} A_i \to B$, $f^-: Y \to \prod_{i \in I} X_i$, $f^0: \coprod_{i \in I} D_i \to D$ категории $C_\star$ такие, что $f^+_i = f^+ \circ q^+_i$, $f^-_i = q^-_i \circ f^-$ и $f^0_i = f^0 \circ q^0_i$ для любого $i \in I$, то есть $f^+(a) = f^+_i(a)$, $f^-(y)_i = f^-_i(y)$ и $f^0(d) = f^0_i(d)$ для любых $a \in A_i$, $y \in Y$, $d \in D_i$. 
 
-    Покажем, что $(f^+,f^-,\widetilde{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то есть для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$ имеет место равенство $f^0(r(a,f^-(y))) = t(f^+(a),y)$. Так как $(q^+_i,q^-_i,\widetilde{q^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $r(q^+_i(a),f^-(y)) = q^0_i(r_i(a,(q^-_i \circ f^-)(y)))$ для любых $a \in A_i$, $y \in Y$. Из того, что $f^0_i = f^0 \circ q^0_i$ и $f^-_i = q^-_i \circ f^-$ следует, что $f^0(r(a,f^-(y))) = (f^0 \circ q^0_i)(r_i(a,(q^-_i \circ f^-)(y))) = f^0_i(r_i(a,f^-_i(y)))$ для любых $a \in A_i$, $y \in Y$. Так как $(f^+_i,f^-_i,\widetilde{f^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $f^0_i(r_i(a,f^-_i(y))) = t(f^+_i(a),y)$ для любых $a \in A_i$, $y \in Y$. Поскольку $f^+(a) = f^+_i(a)$, то $t(f^+_i(a),y) = t(f^+(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, имеет место равенство $f^0(r(a,f^-(y))) = t(f^+(a),y)$ для любых $a \in \coprod_{i \in I} A_i$, $y \in Y$.
+    Пусть $t: B \wedge Y \to D$ --- объект категории $Chu_\sim(C_\star)$, $(f^+_i,f^-_i,\widetilde{f^0_i}): r_i \to t$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$. Так как $\bigvee_{i \in I} A_i$ и $\bigvee_{i \in I} D_i$ --- копроизведения $A_i$, $ i \in I$, и $D_i$, $i \in I$, соответственно, а $\prod_{i \in I} X_i$ --- произведение $A_i$, $i \in I$ в категории $C_\star$, то существуют единственные морфизмы $f^+: \bigvee_{i \in I} A_i \to B$, $f^-: Y \to \prod_{i \in I} X_i$, $f^0: \bigvee_{i \in I} D_i \to D$ категории $C_\star$ такие, что $f^+_i = f^+ \circ q^+_i$, $f^-_i = q^-_i \circ f^-$ и $f^0_i = f^0 \circ q^0_i$ для любого $i \in I$, то есть $f^+(a) = f^+_i(a)$, $f^-(y)_i = f^-_i(y)$ и $f^0(d) = f^0_i(d)$ для любых $a \in A_i$, $y \in Y$, $d \in D_i$. 
+
+    Покажем, что $(f^+,f^-,\widetilde{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то есть для любых $a \in \bigvee_{i \in I} A_i$, $y \in Y$ имеет место равенство $f^0(r(a,f^-(y))) = t(f^+(a),y)$. Так как $(q^+_i,q^-_i,\widetilde{q^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $r(q^+_i(a),f^-(y)) = q^0_i(r_i(a,(q^-_i \circ f^-)(y)))$ для любых $a \in A_i$, $y \in Y$. Из того, что $f^0_i = f^0 \circ q^0_i$ и $f^-_i = q^-_i \circ f^-$ следует, что $f^0(r(a,f^-(y))) = (f^0 \circ q^0_i)(r_i(a,(q^-_i \circ f^-)(y))) = f^0_i(r_i(a,f^-_i(y)))$ для любых $a \in A_i$, $y \in Y$. Так как $(f^+_i,f^-_i,\widetilde{f^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $f^0_i(r_i(a,f^-_i(y))) = t(f^+_i(a),y)$ для любых $a \in A_i$, $y \in Y$. Поскольку $f^+(a) = f^+_i(a)$, то $t(f^+_i(a),y) = t(f^+(a),y)$ для любых $a \in A_i$, $y \in Y$. Таким образом, имеет место равенство $f^0(r(a,f^-(y))) = t(f^+(a),y)$ для любых $a \in \bigvee_{i \in I} A_i$, $y \in Y$.
     Следовательно, $(f^+,f^-,\widetilde{f^0}) \circ (q^+_i, q^-_i, \widetilde{q^0_i}) = (f^+_i, f^-_i, \widetilde{f^0_i})$ для любого $i \in I$ в категории $Chu_\sim(C_\star)$.
 \end{proof}
 
 \begin{theorem}\label{product-c}
-    Пусть $r_i: A_i \wedge X_i \to D_i$ --- объекты категории $Chu_\sim(C_\star)$, $i \in I$. Объект $r: \prod_{i \in I} A_i \wedge \coprod_{i \in I} X_i \to \prod_{i \in I} r_i(A_i \wedge X_i)$ категории $Chu_\sim(C_\star)$ вместе с семейством $\{(p^+_i,p^-_i,\widetilde{p^0_i}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_\sim(C_\star)$, где $\pi_j(r(a,x_i)) = 
+    Пусть $r_i: A_i \wedge X_i \to D_i$ --- объекты категории $Chu_\sim(C_\star)$, $i \in I$. Объект $r: \prod_{i \in I} A_i \wedge \bigvee_{i \in I} X_i \to \prod_{i \in I} r_i(A_i \wedge X_i)$ категории $Chu_\sim(C_\star)$ вместе с семейством $\{(p^+_i,p^-_i,\widetilde{p^0_i}): r \to r_i \mid i \in I\}$ преобразований Чу категории $Chu_\sim(C_\star)$, где $\pi_j(r(a,x_i)) = 
     \begin{cases}
         r_i(p^+_i(a),x_i),& \text{если } i = j,\\
         \star,& \text{если } i \ne j,
     \end{cases}$
-    $\pi_i: \prod_{i \in I} r_i(A_i \wedge X_i) \to r_i(A_i \wedge X_i)$ --- каноническая проекция, $p^+_i: \prod_{i \in I} A_i \to A_i$ --- каноническая проекция, $p^-_i: X_i \to \coprod_{i \in I} X_i$ --- естественное вложение, $p^0_i = m_i \circ \pi_i$, $m_i: r_i(A_i \wedge X_i) \to D_i$ --- естественное вложение, для любых $a \in \prod_{i \in I} A_i$, $x_i \in X_i$, $i,j \in I$, является произведением объектов $r_i$, $i \in I$, категории $Chu_\sim(C_\star)$.
+    $\pi_i: \prod_{i \in I} r_i(A_i \wedge X_i) \to r_i(A_i \wedge X_i)$ --- каноническая проекция, $p^+_i: \prod_{i \in I} A_i \to A_i$ --- каноническая проекция, $p^-_i: X_i \to \bigvee_{i \in I} X_i$ --- естественное вложение, $p^0_i = m_i \circ \pi_i$, $m_i: r_i(A_i \wedge X_i) \to D_i$ --- естественное вложение, для любых $a \in \prod_{i \in I} A_i$, $x_i \in X_i$, $i,j \in I$, является произведением объектов $r_i$, $i \in I$, категории $Chu_\sim(C_\star)$.
 \end{theorem}
 \begin{proof}
     Пусть условия теоремы выполнены. Поскольку $p^0_i(r(a,p^-_i(x_i))) = m_i(\pi_i(r(a,p^-_i(x_i)))) = \pi_i(r(a,p^-_i(x_i))) = r_i(p^+_i(a),x_i)$ для любых $a \in \prod_{i \in I} A_i$, $x_i \in X_i$, $i \in I$, то $(p^+_i,p^-_i,\widetilde{p^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$.
@@ -262,7 +294,7 @@ $$
     \end{cases}$
     для любого $d \in D$. Поскольку $(f^+_i,f^-_i,\widetilde{f^0_i})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$, то $m_i(\overline{f^0_i}(t(b,f^-_i(x_i)))) = f^0_i(t(b,f^-_i(x_i))) = r_i(f^+_i(b),x_i)$ для любых $b \in B$, $x_i \in X_i$. Следовательно, $(f^+_i,f^-_i,\widetilde{m_i \circ \overline{f^0_i}}): t \to r_i$ --- преобразование Чу категории $Chu_\sim(C_\star)$ для любого $i \in I$.
 
-    Так как $\prod_{i \in I} A_i$ и $\prod_{i \in I} r_i(A_i \wedge X_i)$ --- произведения $A_i$, $ i \in I$, и $r_i(A_i \wedge X_i)$, $i \in I$, соответственно, а $\coprod_{i \in I} X_i$ --- копроизведение $X_i$, $i \in I$, в категории $C_\star$, то существуют единственные морфизмы $f^+: B \to \prod_{i \in I} A_i$, $f^-: \coprod_{i \in I} X_i \to Y$, $\overline{f^0}: D \to \prod_{i \in I} r_i(A_i \wedge X_i)$ категории $C_\star$ такие, что $f^+_i = p^+_i \circ f^+$, $f^-_i = f^- \circ p^-_i$ и $\overline{f^0_i} = \pi_i \circ \overline{f^0}$ для любого $i \in I$, то есть $p^+_i(f^+(b)) = f^+_i(b)$, $f^-(x_i) = f^-_i(x_i)$ и $\pi_i(\overline{f^0}(d)) = \overline{f^0_i}(d)$ для любых $b \in  B$, $x_i \in X_i$, $d \in D$, $i \in I$.
+    Так как $\prod_{i \in I} A_i$ и $\prod_{i \in I} r_i(A_i \wedge X_i)$ --- произведения $A_i$, $ i \in I$, и $r_i(A_i \wedge X_i)$, $i \in I$, соответственно, а $\bigvee_{i \in I} X_i$ --- копроизведение $X_i$, $i \in I$, в категории $C_\star$, то существуют единственные морфизмы $f^+: B \to \prod_{i \in I} A_i$, $f^-: \bigvee_{i \in I} X_i \to Y$, $\overline{f^0}: D \to \prod_{i \in I} r_i(A_i \wedge X_i)$ категории $C_\star$ такие, что $f^+_i = p^+_i \circ f^+$, $f^-_i = f^- \circ p^-_i$ и $\overline{f^0_i} = \pi_i \circ \overline{f^0}$ для любого $i \in I$, то есть $p^+_i(f^+(b)) = f^+_i(b)$, $f^-(x_i) = f^-_i(x_i)$ и $\pi_i(\overline{f^0}(d)) = \overline{f^0_i}(d)$ для любых $b \in  B$, $x_i \in X_i$, $d \in D$, $i \in I$.
 
     Покажем, что $(f^+,f^-,\widetilde{\overline{f^0}})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то есть для любых $b \in B$, $x_i \in X_i$, $i \in I$, имеет место равенство $\overline{f^0}(t(b,f^-(x_i))) = r(f^+(b),x_i)$. Поскольку $\prod_{i \in I} r_i(A_i \wedge X_i)$ вместе с семейством $\{\pi_i: \prod_{i \in I} r_i(A_i \wedge X_i) \to r_i(A_i \wedge X_i) \mid i \in I\}$ морфизмов категории $C_\star$ является произведением объектов $r_i(A_i \wedge X_i)$, $i \in I$, то для любых $b \in B$, $x \in X_i$ равенство $\overline{f^0}(t(b,f^-(x_i))) = r(f^+(b),x_i)$ равносильно равенству $\pi_j(\overline{f^0}(t(b,f^-(x_i)))) = \pi_j(r(f^+(b),x_i))$ для любых $b \in B$, $x_i \in I$, $i,j \in I$. Тогда из равенств
     \begin{multline*}
@@ -294,28 +326,49 @@ $$
     Следовательно, $(f^+,f^-,\widetilde{\overline{f^0}}) = (f'^+,f'^-,\widetilde{f'^0})$ в категории $Chu_\sim(C_\star)$.
 \end{proof}
 
-\begin{remark}
-    Пусть $\varphi_1, \varphi_2: U \to V$ --- морфизмы категории $C_\star$. Тогда отношение $\nu(\varphi_1,\varphi_2)$ на $U$ определяется следующим образом: $(u_1,u_2) \in \nu(\varphi_1,\varphi_2) \Leftrightarrow \varphi_1(u_1) = \varphi_2(u_2)$.
+\begin{remark}\label{factor}
+    Пусть $f_1, f_2: A_1 \to A_2$ --- морфизмы категории $C_\star$. Тогда через $\nu(f_1,f_2)$ обозначим конгруэнцию на $A_2$ порожденную парами $(f_1(a),f_2(a))$, $a \in A_1$. Факторсистема $A_2/\nu(f_1,f_2)$ изоморфна следующему корасслоенному произведению (ЭТО КОУРАВНИТЕЛЬ, ПЕРЕПИСАТЬ)
+    $$\xymatrix@R=2em@C=2em{
+        A_1 \ar[r]^{f_1} \ar[d]_{f_2} & A_2 \ar[d]^{p}\\
+        A_2 \ar[r]_{p} & A_2/\nu(f_1,f_2),
+    }$$
+    где $p(a) = a/\nu(f_1,f_2)$ для любого $a \in A_2$. Поскольку категория $C$ является биполной, то корасслоенное произведение выше существует. 
 \end{remark}
+\begin{proof}
+    Из определения корасслоенного произведения следует, что для любого объекта $B$ категории $C_\star$ вместе с морфизмами $p_1, p_2: A_2 \to B$ такими, что $p_1 \circ f_1 = p_2 \circ f_2$ существует единственный морфизм $h: A_2/\nu(f_1,f_2) \to B$ такой, что $h \circ p = p_1 = p_2$. Покажем, что $h$ определен корректно. Пусть $a_1 = f_1(a)$ и $a_2 = f_2(a)$ для некоторого $a \in A_1$. Тогда $p_1(f_1(a)) = h(f_1(a)/\nu) = h(f_2(a)/\nu) = p_2(f_1(a))$. Покажем, что $h$ является гомоморфизмом алгебраических систем. Пусть $g \in \Sigma$ --- произвольная $n$-местная операция, $a_1,\ldots,a_n \in A_2$. Тогда 
+    \begin{multline*}
+        h(g(a_1/\nu,\ldots,a_n/\nu)) = h(g(p(a_1),\ldots,p(a_n))) = h(p(g(a_1,\ldots,a_n))) =\\=
+        p_1(g(a_1,\ldots,a_n)) = g(p_1(a_1),\ldots,p_1(a_n)) = g(h(p(a_1)),\ldots,h(p(a_n))) =\\=
+        g(h(a_1/\nu),\ldots,h(a_n/\nu))
+    \end{multline*}
+\end{proof}
+
 
 \begin{theorem}
-    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда коуравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: Q \wedge E \to D_2$, где $Q = A_2/\nu(f_1^+,f_2^+)$, $E = \{x \in X_2 \mid f_1^-(x) = f_2^-(x)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f^+,f^-,\widetilde{\langle f^+,f^- \rangle}): r_2 \to t$, где $f^+$ --- канонический эпиморфизм, $f^-$ --- естественное вложение. 
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда коуравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: Q \wedge E \to W$, где $Q = A_2/\nu(f_1^+,f_2^+)$, $E = \{x \in X_2 \mid f_1^-(x) = f_2^-(x)\}$, $W = D_2/\nu(f_1^0,f_2^0)$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f^+,f^-,\widetilde{f^0}): r_2 \to t$, где $f^+,f^0$ --- канонический эпиморфизмы, $f^-$ --- естественное вложение. 
 \end{theorem}
 \begin{proof}
-    Пусть условия теоремы выполнены. Введем обозначения $\overline{a} = a/\nu(f_1^+,f_2^+)$ для любого $a \in A_2$. Корректность определения $t$ следует из равенств $f_1^0(r_1(a,x)) = r_2(f_1^+(a),x)$, $f_2^0(r_1(a,x)) = r_2(f_2^+(a),x)$ для любых $a \in A_1$, $x \in E$.
+    Пусть условия теоремы выполнены. Введем обозначения $\overline{a} = a/\nu(f_1^+,f_2^+)$ для любого $a \in A_2$ и $\overline{d} = d/\nu(f_1^0,f_2^0)$ для любого $d \in D_2$. Корректность определения $t$ следует из равенств $f_1^0(r_1(a,x)) = r_2(f_1^+(a),x)$, $f_2^0(r_1(a,x)) = r_2(f_2^+(a),x)$ для любых $a \in A_1$, $x \in E$. Покажем, что $t$ --- гомоморфизм алгебраических систем. Пусть $g \in \Sigma$ --- произвольная $n$-местная операция, $q_1 = a_1/\nu,\ldots,q_n = a_n/\nu \in Q$, $e_1,\ldots,e_n \in E$. Тогда
+    \begin{multline*}
+        t(g((q_1,e_1),\ldots,(q_n,e_n))) = t(g(q_1,\ldots,q_n),g(e_1,\ldots,e_n)) =\\=
+        t(g(a_1/\nu,\ldots,a_n/\nu),g(e_1,\ldots,e_n)) = t(g(a_1,\ldots,a_n)/\nu,g(e_1,\ldots,e_n)) =\\=
+        r_2(g(a_1,\ldots,a_n),g(e_1,\ldots,e_n))/\nu = r_2(g((q_1,e_1),\ldots,(q_n,e_n)))/\nu =\\=
+        g(r_2(q_1,e_1),\ldots,r_2(q_n,e_n))/\nu = g(r_2(q_1,e_1)/\nu,\ldots,r_2(q_n,e_n)/\nu) =\\=
+        g(t(a_1/\nu,e_1),\ldots,t(a_n/\nu,e_n)) = g(t(q_1,e_1),\ldots,t(q_n,e_n))
+    \end{multline*}
 
-    Покажем, что $(f^+,f^-,\widetilde{\langle f^+,f^- \rangle}): r_2 \to t$ является преобразованием Чу категории $Chu_\sim(C_\star)$. Так как имеют место равенства $t(f^+(a),x) = t(\overline{a},x) = r_2(a,x)$ и $\langle f^+,f^- \rangle(r_2(a,f^-(x))) = t(\overline{a},x) = r_2(a,x)$ для любых $a \in A_2$, $x \in E$, то $t(f^+(a),x) = \langle f^+,f^- \rangle(r_2(a,f^-(x)))$ для любых $a \in A_2$, $x \in X$. Таким образом, $(f^+,f^-,\widetilde{\langle f^+,f^- \rangle})$ является преобразованием Чу категории $Chu_\sim(C_\star)$.
+    Покажем, что $(f^+,f^-,\widetilde{f^0}): r_2 \to t$ является преобразованием Чу категории $Chu_\sim(C_\star)$. Так как имеют место равенства $t(f^+(a),x) = t(\overline{a},x) = \overline{r_2(a,x)}$ и $f^0(r_2(a,f^-(x))) = t(\overline{a},x) = \overline{r_2(a,x)}$ для любых $a \in A_2$, $x \in E$, то $t(f^+(a),x) = f^0(r_2(a,f^-(x)))$ для любых $a \in A_2$, $x \in X$. Таким образом, $(f^+,f^-,\widetilde{f^0})$ является преобразованием Чу категории $Chu_\sim(C_\star)$.
 
-    Пусть $t': Q' \wedge E' \to D'$ --- объект категории $Chu_\sim(C_\star)$ и $(f'^+,f'^-,\widetilde{f'^0}): r_2 \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$ такое, что $(f'^+,f'^-,\widetilde{f'^0}) \circ (f_1^+,f_1^-,\widetilde{f_1^0}) = (f'^+,f'^-,\widetilde{f'^0}) \circ (f_2^+,f_2^-,\widetilde{f_2^0})$. Тогда $f'^+ \circ f_1^+ = f'^+ \circ f_2^+$, $f_1^- \circ f'^- = f_2^- \circ f'^-$ и для любого $d \in D_1$ если $d = r_1(a,(f_1^- \circ f'^-)(x))$, то $(f'^0 \circ f_1^0)(d) = (f'^0 \circ f_2^0)(d) = t((f'^+ \circ f_1^+)(a),x)$. Так как $Q$ является коуравнителем, $E$ является уравнителем в категории $C_\star$, то существуют единственные морфизмы $u: Q \to Q'$, $v: E' \to E$ категории $C_\star$ такие, что $f'^+ = u \circ f^+$. Из следствия \ref{unique-third} следует, что существует морфизм $\langle u,v \rangle : D_2 \to D'$ такой, что $(u,v,\widetilde{\langle u,v \rangle})$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Покажем, что $(u,v,\widetilde{\langle u,v \rangle}): t \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Пусть $a \in A_2$, $x' \in E'$. Так как $u(\overline{a}) = (u \circ f^+)(a)$ и $f'^+ = u \circ f^+$, то $t'(u(\overline{a}),x') = t'((u \circ f^+)(a),x')$. Из того, что $(f'^+,f'^-,\widetilde{f'^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ следует, что $t'(f'^+(a),x') = f'^0(r_2(a,f'^-(x')))$. С другой стороны, из того, что $\overline{a} = f^+(a)$ следует, что $\langle u,v \rangle(t(\overline{a},v(x'))) = \langle u,v \rangle(t(f^+(a),v(x')))$. Так как $(f^+,f^-,\widehat{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $\langle u,v \rangle(t(f^+(a),v(x'))) = (\langle u,v \rangle \circ f^0)(r_2(a,(f^- \circ v)(x')))$. Поскольку $f'^0 = \langle u,v \rangle \circ f^0$ и $f'^- = f^- \circ v$,, то $(\langle u,v \rangle \circ f^0)(r_2(a,(f^- \circ v)(x'))) = f'^0(r_2(a,f'^-(x')))$. Таким образом, $t'(u(a),x') = \langle u,v \rangle(t(\overline{a},v(x')))$. Следовательно, $(u,v,\widetilde{\langle u,v \rangle})$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Ясно, что $(u,v,\widetilde{\langle u,v \rangle})$ --- единственное такое преобразование Чу, что $(f'^+,f'^-,\widetilde{f'^0}) = (u,v,\widetilde{\langle u,v \rangle}) \circ (f^+,f^-,\widetilde{f^0})$ 
+    Пусть $t': Q' \wedge E' \to W'$ --- объект категории $Chu_\sim(C_\star)$ и $(f'^+,f'^-,\widetilde{f'^0}): r_2 \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$ такое, что $(f'^+,f'^-,\widetilde{f'^0}) \circ (f_1^+,f_1^-,\widetilde{f_1^0}) = (f'^+,f'^-,\widetilde{f'^0}) \circ (f_2^+,f_2^-,\widetilde{f_2^0})$. Тогда $f'^+ \circ f_1^+ = f'^+ \circ f_2^+$, $f_1^- \circ f'^- = f_2^- \circ f'^-$ и для любого $d \in D_1$ если $d = r_1(a,(f_1^- \circ f'^-)(x))$, то $(f'^0 \circ f_1^0)(d) = (f'^0 \circ f_2^0)(d) = t((f'^+ \circ f_1^+)(a),x)$. Так как $Q$ и $W$ являются коуравнителями, $E$ является уравнителем в категории $C_\star$, то существуют единственные морфизмы $u: Q \to Q'$, $v: E' \to E$ и $w: W \to W'$ категории $C_\star$ такие, что $f'^+ = u \circ f^+$, $f'^- = f^- \circ v$ и $f'^0 = w \circ f^0$. Покажем, что $(u,v,\widetilde{w}): t \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Пусть $a \in A_2$, $x' \in E'$. Так как $u(\overline{a}) = (u \circ f^+)(a)$ и $f'^+ = u \circ f^+$, то $t'(u(\overline{a}),x') = t'((u \circ f^+)(a),x')$. Из того, что $(f'^+,f'^-,\widetilde{f'^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ следует, что $t'(f'^+(a),x') = f'^0(r_2(a,f'^-(x')))$. С другой стороны, из того, что $\overline{a} = f^+(a)$ следует, что $w(t(\overline{a},v(x'))) = w(t(f^+(a),v(x')))$. Так как $(f^+,f^-,\widetilde{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $w(t(f^+(a),v(x'))) = (w \circ f^0)(r_2(a,(f^- \circ v)(x')))$. Поскольку $f'^0 = w \circ f^0$ и $f'^- = f^- \circ v$, то $(w \circ f^0)(r_2(a,(f^- \circ v)(x'))) = f'^0(r_2(a,f'^-(x')))$. Таким образом, $t'(u(a),x') = w(t(\overline{a},v(x')))$. Следовательно, $(u,v,\widetilde{w})$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Ясно, что $(u,v,\widetilde{w})$ --- единственное такое преобразование Чу, что $(f'^+,f'^-,\widetilde{f'^0}) = (u,v,\widetilde{w}) \circ (f^+,f^-,\widetilde{f^0})$ 
 \end{proof}
 
 \begin{theorem}
-    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда уравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: E \wedge Q \to D_1$, где $Q = X_1/\nu(f_1^-,f_2^-)$, $E = \{a \in A_1 \mid f_1^+(a) = f_2^+(a)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f^+,f^-,\widetilde{\langle f^+,f^- \rangle}): t \to r_1$, где $f^+$ --- естественное вложение, $f^-$ --- канонический эпиморфизм. 
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда уравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: E \wedge Q \to D_1$, где $Q = X_1/\nu(f_1^-,f_2^-)$, $E = \{a \in A_1 \mid f_1^+(a) = f_2^+(a)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f^+,f^-,\widetilde{f^0}): t \to r_1$, где $f^+$ --- естественное вложение, $f^-$ --- канонический эпиморфизм. 
 \end{theorem}
 
 \end{document}
 
-\section*{Категория $Chu_{\widetilde{Set}}$}
+\section{Категория $Chu_{\widetilde{Set}}$}
 
 \begin{theorem}\label{epimorphism}
     Пусть $r: A \times X \to D$ и $t: B \times Y \to C$ --- объекты категории $Chu_{\widetilde{Set}}$. Преобразование $(f,g,h): r \to t$ категории $Chu_{\widetilde{Set}}$ является эпиморфизмом тогда и только тогда, когда $f: A \to B$ --- эпиморфизм, $g: Y \to X$ --- мономорфизм категории $Set_{\star}$.
@@ -485,7 +538,7 @@ $$
 
 
 
-\section*{Категория $Chu(\GAct_{\star})$}
+\section{Категория $Chu(\GAct_{\star})$}
 
 \begin{theorem}\label{epimorphism-gact}
     Пусть $r: A \otimes X \to D$ и $t: B \otimes Y \to C$ --- объекты категории $Chu_{\widetilde{\GAct}}$. Преобразование $(f,g,h): r \to t$ категории $Chu_{\widetilde{\GAct}}$ является эпиморфизмом тогда и только тогда, когда $f: A \to B$ --- эпиморфизм, $g: Y \to X$ --- мономорфизм категории $\GAct_{\star}$.
