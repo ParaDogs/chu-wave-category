@@ -128,7 +128,7 @@ $$
     (g_1 \circ f_1)(r_1(a,(f^- \circ g^-)(x))) = r_3((g^+ \circ f^+)(a),x) = (g_2 \circ f_2)(r_1(a,(f^- \circ g^-)(x))). 
 \end{multline*} Таким образом, композиция определена корректно.
 
-\section{Категория $Chu_\sim(C_\star)$}
+\subsection{Конструкции (ко)пределов в $Chu_\sim(C_\star)$}
 
 В этой главе рассматривается категория $C$ со следующим требованием: любая $n$-местная операция $g^{(n)}$ удовлетворяет равенству $g^{(n)}(\varepsilon_1,\ldots,\varepsilon_n) = \star$, если $\varepsilon_i = \star$ для некоторого $i \in \{1,\ldots,n\}$.
 
@@ -363,8 +363,21 @@ $$
 \end{proof}
 
 \begin{theorem}
-    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда уравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: E \wedge Q \to D_1$, где $Q = X_1/\nu(f_1^-,f_2^-)$, $E = \{a \in A_1 \mid f_1^+(a) = f_2^+(a)\}$, $t(a/\nu(f_1^+,f_2^+),x) = r_2(a,x)/\nu(f_1^0,f_2^0)$ для любых $a \in A_2$, $x \in X_2$, вместе с морфизмом $(f^+,f^-,\widetilde{f^0}): t \to r_1$, где $f^+$ --- естественное вложение, $f^-$ --- канонический эпиморфизм. 
+    Пусть $r_1: A_1 \wedge X_1 \to D_1$, $r_2: A_2 \wedge X_2 \to D_2$ --- объекты категории $Chu_\sim(C_\star)$ и $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0}): r_1 \to r_2$ --- преобразования Чу категории $Chu_\sim(C_\star)$. Тогда уравнителем морфизмов $(f_1^+,f_1^-,\widetilde{f_1^0}), (f_2^+,f_2^-,\widetilde{f_2^0})$ является пространство Чу $t: E \wedge Q \to W$, где $Q = X_1/\nu(f_1^-,f_2^-)$, $E = \{a \in A_1 \mid f_1^+(a) = f_2^+(a)\}$, $W = \{d \in D_1 \mid f_1^0(d) = f_2^0(d)\}$, $t(a,x/\nu(f_1^-,f_2^-)) = r_1(a,x)$ для любых $a \in A_1$, $x \in X_1$, вместе с морфизмом $(f^+,f^-,\widetilde{f^0}): t \to r_1$, где $f^+$, $f^0$ --- естественные вложения, $f^-$ --- канонический эпиморфизм. 
 \end{theorem}
+\begin{proof}
+    Пусть условия теоремы выполнены. Введем обозначение $x/\nu = x/\nu(f_1^-,f_2^-)$ для любого $x \in X_1$. Покажем, что $t$ --- гомоморфизм алгебраических систем. Пусть $g \in \Sigma$ --- произвольная $n$-местная операция, $q_1 = x_1/\nu,\ldots,q_n = x_n/\nu \in Q$, $e_1,\ldots,e_n \in E$. Тогда
+    \begin{multline*}
+        t(g((e_1,q_1),\ldots,(e_n,q_n))) = t(g(e_1,\ldots,e_n),g(q_1,\ldots,q_n)) =\\=
+        t(g(e_1,\ldots,e_n),g(x_1/\nu,\ldots,x_n/\nu)) = t(g(e_1,\ldots,e_n),g(x_1,\ldots,x_n)/\nu) =\\=
+        r_1(g(e_1,\ldots,e_n),g(x_1,\ldots,x_n)) = r_1(g((e_1,x_1),\ldots,(e_n,x_n))) =\\=
+        g(r_1(e_1,x_1),\ldots,r_1(e_n,x_n)) = g(t(e_1,q_1),\ldots,t(e_n,q_n))
+    \end{multline*}
+
+    Из равенства $f^0(t(a,f^-(x))) = r_1(a,x) = r_1(f^+(a),x)$ для любых $a \in E$, $x \in X_1$ следует, что $(f^+,f^-,\widetilde{f^0}): t \to r_1$ является преобразованием Чу категории $Chu_\sim(C_\star)$.
+
+    Пусть $t': E' \wedge Q' \to W'$ --- объект категории $Chu_\sim(C_\star)$ и $(f'^+,f'^-,\widetilde{f'^0}): t' \to r_1$ --- преобразование Чу категории $Chu_\sim(C_\star)$ такое, что $(f_1^+,f_1^-,\widetilde{f_1^0}) \circ (f'^+,f'^-,\widetilde{f'^0}) = (f_2^+,f_2^-,\widetilde{f_2^0}) \circ (f'^+,f'^-,\widetilde{f'^0})$. Тогда $f_1^+ \circ f'^+ = f_2^+ \circ f'^+$, $f'^- \circ f_1^-= f'^- \circ f_2^-$ и для любого $d \in D'$ если $d = t'(e,(f'^- \circ f_1^-)(q))$, то $(f_1^0 \circ f'^0)(d) = (f_2^0 \circ f'^0)(d) = r_2((f_1^+ \circ f'^+)(e),q)$. Так как $E$ и $W$ являются уравнителями, $Q$ является коуравнителем в категории $C_\star$, то существуют единственные морфизмы $u: E' \to E$, $v: Q \to Q'$ и $w: W' \to W$ категории $C_\star$ такие, что $f'^+ = f^+ \circ u$, $f'^- = v \circ f^-$ и $f'^0 = f^0 \circ w$. ДОПИСАТЬ $\Rightarrow$. Покажем, что $(u,v,\widetilde{w}): t \to t'$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Пусть $a \in A_2$, $x' \in E'$. Так как $u(\overline{a}) = (u \circ f^+)(a)$ и $f'^+ = u \circ f^+$, то $t'(u(\overline{a}),x') = t'((u \circ f^+)(a),x')$. Из того, что $(f'^+,f'^-,\widetilde{f'^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$ следует, что $t'(f'^+(a),x') = f'^0(r_2(a,f'^-(x')))$. С другой стороны, из того, что $\overline{a} = f^+(a)$ следует, что $w(t(\overline{a},v(x'))) = w(t(f^+(a),v(x')))$. Так как $(f^+,f^-,\widetilde{f^0})$ --- преобразование Чу категории $Chu_\sim(C_\star)$, то $w(t(f^+(a),v(x'))) = (w \circ f^0)(r_2(a,(f^- \circ v)(x')))$. Поскольку $f'^0 = w \circ f^0$ и $f'^- = f^- \circ v$, то $(w \circ f^0)(r_2(a,(f^- \circ v)(x'))) = f'^0(r_2(a,f'^-(x')))$. Таким образом, $t'(u(a),x') = w(t(\overline{a},v(x')))$. Следовательно, $(u,v,\widetilde{w})$ --- преобразование Чу категории $Chu_\sim(C_\star)$. Ясно, что $(u,v,\widetilde{w})$ --- единственное такое преобразование Чу, что $(f'^+,f'^-,\widetilde{f'^0}) = (u,v,\widetilde{w}) \circ (f^+,f^-,\widetilde{f^0})$ 
+\end{proof}
 
 \end{document}
 
